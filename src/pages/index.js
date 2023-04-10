@@ -1,19 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react"
-import { useForm } from 'react-hook-form';
 
 
 export default function Home() {
   const { data: session } = useSession()
   console.log(session)
-
-  const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm();
-
   return (
     <>
       <Head>
@@ -39,10 +31,11 @@ export default function Home() {
           <h1 className="text-center text-3xl font-mono font-semibold mb-5">
             Upload a Project
           </h1>
-          <form onSubmit={handleSubmit(submit)}>
+          <form>
             <div className="flex flex-col gap-5 justify-center w-full items-center">
               <div className="relative">
                 <input
+                 {...register('title')}
                   type="text"
                   placeholder="Title of Project"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -53,6 +46,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <input
+                {...register('author')}
                   type="text"
                   placeholder="Author"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -63,6 +57,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <input
+                {...register('course')}
                   type="text"
                   placeholder="Course"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -72,7 +67,7 @@ export default function Home() {
                 </label>
               </div>
               <div className="relative">
-                <input type="file" className="" />
+                <input {...register('file')} type="file" className="" />
               </div>
             </div>
             <div className="flex justify-center">
@@ -115,6 +110,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <ToastContainer />
       </main>
     </>
   );
