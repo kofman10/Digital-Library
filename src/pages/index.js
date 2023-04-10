@@ -1,11 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react"
+import { useForm } from 'react-hook-form';
 
 
 export default function Home() {
   const { data: session } = useSession()
   console.log(session)
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
   return (
     <>
       <Head>
@@ -31,7 +39,7 @@ export default function Home() {
           <h1 className="text-center text-3xl font-mono font-semibold mb-5">
             Upload a Project
           </h1>
-          <form>
+          <form onSubmit={handleSubmit(submit)}>
             <div className="flex flex-col gap-5 justify-center w-full items-center">
               <div className="relative">
                 <input
