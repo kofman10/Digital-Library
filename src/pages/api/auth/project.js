@@ -26,9 +26,11 @@ const handler = async (req, res) => {
     //   await db.disconnect();
       res.status(201).send({
         message: 'Created project!',
-        _id: user._id,
-        name: user.username,
-        isAdmin: user.isAdmin,
+        _id: project._id,
+        title: project.title,
+        author: project.author,
+        course: project.course,
+        file: project.file
       });
 
 }
