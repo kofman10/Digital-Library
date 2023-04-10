@@ -1,5 +1,5 @@
-import dbConnect from '../../../utils/db';
-import Project from '../../../utils/db'
+import dbConnect from '../../utils/db';
+import Project from '../../models/Project'
 
 const handler = async (req, res) => {
     if (req.method !== 'POST') {
@@ -9,7 +9,7 @@ const handler = async (req, res) => {
 
       await dbConnect()
 
-      const existingUser = await Project.findOne({ title: title });
+      const existingTitle = await Project.findOne({ title: title });
       if (existingTitle) {
         res.status(422).json({ message: 'title exists already!' });
         return;
