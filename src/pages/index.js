@@ -1,11 +1,37 @@
 import Head from "next/head";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react"
+import { useForm } from 'react-hook-form';
+import { getError } from '../utils/error';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 
 export default function Home() {
   const { data: session } = useSession()
   console.log(session)
+
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const submitHandler = async ({title, author, course, file}) => {
+      try {
+        await axios.post('/api/project', {
+          title,
+          author,
+          course,
+          file
+        })
+        toast('project uploaded successfully')
+      } catch (err) {
+        toast.error(getError(err));
+      }
+  }
+
   return (
     <>
       <Head>
@@ -31,10 +57,11 @@ export default function Home() {
           <h1 className="text-center text-3xl font-mono font-semibold mb-5">
             Upload a Project
           </h1>
-          <form>
+          <form onSubmit={handleSubmit(submitHandler)}>
             <div className="flex flex-col gap-5 justify-center w-full items-center">
               <div className="relative">
                 <input
+                 {...register('title')}
                   type="text"
                   placeholder="Title of Project"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -45,6 +72,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <input
+                {...register('author')}
                   type="text"
                   placeholder="Author"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -55,6 +83,7 @@ export default function Home() {
               </div>
               <div className="relative">
                 <input
+                {...register('course')}
                   type="text"
                   placeholder="Course"
                   className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
@@ -64,7 +93,7 @@ export default function Home() {
                 </label>
               </div>
               <div className="relative">
-                <input type="file" className="" />
+                <input {...register('file')} type="file" className="" />
               </div>
             </div>
             <div className="flex justify-center">
@@ -107,6 +136,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <ToastContainer />
       </main>
     </>
   );
