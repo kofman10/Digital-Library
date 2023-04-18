@@ -1,38 +1,39 @@
-import dbConnect from '../../utils/db';
-import Project from '../../models/Project'
+import dbConnect from "../../utils/db";
+import Project from "../../models/Project";
 
 const handler = async (req, res) => {
-    if (req.method !== 'POST') {
-        return;
+  const { method } = req;
+
+  await dbConnect();
+
+
+  try {
+    if (method === "POST") {
+      const project = await Project.create(req.body);
+      // console.log(project);
+      res.status(200).json(project);
+    }
+
+    if (method === "GET") {
+      try {
+        const projects = await Project.find();
+        res.status(200).json(projects);
+      } catch (error) {
+        res.status(500).json(error);
       }
-      const { title, author, course, file } = req.body;
+    }
+    // res.status(201).send({
+    //   message: "Created project!",
+    //   _id: project._id,
+    //   title: project.title,
+    //   author: project.author,
+    //   course: project.course,
+    //   //  filename: project.filename,
+    // });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
 
-      await dbConnect()
-
-      const existingTitle = await Project.findOne({ title: title });
-      if (existingTitle) {
-        res.status(422).json({ message: 'title exists already!' });
-        return;
-      }
-    
-      const newProject = new Project({
-       title,
-       author,
-       course,
-       file
-      });
-    
-      const project = await newProject.save();
-    //   await db.disconnect();
-      res.status(201).send({
-        message: 'Created project!',
-        _id: project._id,
-        title: project.title,
-        author: project.author,
-        course: project.course,
-        file: project.file
-      });
-
-}
-
-export default handler
+export default handler;

@@ -5,7 +5,7 @@ const projectSchema = new mongoose.Schema(
     title: { type: String, required: true, },
     author: { type: String, required: true },
     course: { type: String, required: true },
-    file: { type: String, required: true },
+    filename: { type: String, required: true },
   },
   {
     timestamps: true,

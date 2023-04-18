@@ -8,7 +8,6 @@ import { useRouter } from 'next/router';
 
 const Login = () => {
   const { data: session } = useSession();
-   console.log(session)
   const router = useRouter();
   const { redirect } = router.query;
 
@@ -30,7 +29,6 @@ const Login = () => {
         username,
         password,
       });
-       console.log(result)
       if (result.error) {
         toast.error(result.error);
       } else {
@@ -42,7 +40,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-purple-400 to-pink-500 py-3 h-screen">
+    <div className=" py-3 ">
       <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col justify-center items-center gap-5 mt-32">
         <div className="relative">
           <input

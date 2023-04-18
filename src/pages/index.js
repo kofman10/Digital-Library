@@ -1,11 +1,93 @@
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react"
-
+import { signOut, useSession } from "next-auth/react";
+import { useForm } from "react-hook-form";
+import { getError } from "../utils/error";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import PdfViewer from "@/components/PdfViewer";
+import Navbar from "../components/Navbar/Navbar";
+import Swiperr from "../components/Swiperr";
 
 export default function Home() {
-  const { data: session } = useSession()
-  console.log(session)
+  const { data: session } = useSession();
+  // console.log(session)
+
+  const [pdfData, setPdfData] = useState(null);
+
+  const {
+    handleSubmit,
+    register,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  // const filename = watch('filename')[0].name
+
+  const onSubmit = async (data) => {
+    const { title, author, course, filename } = data;
+    const formData = new FormData();
+
+    formData.append("file", filename[0]);
+    formData.append("upload_preset", "file_upload");
+
+    try {
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dtfxgvzze/upload",
+        formData
+      );
+
+      const filename = response.data.url;
+      console.log(filename);
+      const newProject = {
+        title,
+        author,
+        course,
+        filename,
+      };
+
+      await axios.post("/api/project", newProject);
+
+      toast("project uploaded successfully");
+    } catch (error) {
+      console.log(error);
+    }
+
+    // for (const value of formData.values()) {
+    //   console.log(value);
+    // }
+
+    // try {
+    //   await axios.post("/api/project", formData, {
+    //     headers: {
+    //       'Content-Type': 'multipart/form-data'
+    //     }});
+    //   toast("project uploaded successfully");
+    // } catch (err) {
+    //   toast.error(getError(err));
+    // }
+    //   const res = await fetch("http://localhost:3000/api/project", {
+    //     method: "POST",
+    //     body: formData,
+    // }).then((res) => res.json());
+    // alert(JSON.stringify(`${res.message}, status: ${res.status}`));
+  };
+
+  // useEffect(() => {
+  //   const fetchPdfData = async () => {
+  //     try{
+  //       const response = await fetch('http://localhost:3000/api/project');
+  //       // response?.map()
+  //       // setPdfData(pdfData);
+  //     } catch (error) {
+  //       console.log("failed to fetch pdf data", error);
+  //     }
+  //   }
+  //   fetchPdfData();
+  // }, []);
+
   return (
     <>
       <Head>
@@ -14,104 +96,85 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="bg-gradient-to-br from-purple-400 to-pink-500 py-3 h-screen">
+      <main className="h-full w-full">
+        <Navbar />
+     
+        <Swiperr />
         <section>
-          <nav className="flex justify-between px-5">
-            <div className="flex gap-5">
-              <a href="#">Home</a>
-              <a href="#">Other functionalities</a>
-            </div>
-            <div className="flex gap-5">
-            {session?.user && <button onClick={() => signOut()}>Sign out</button>}
-              <Link href="/signIn">Admin</Link>
-            </div>
-          </nav>
-        </section>
-      { session?.user && <section className="mt-32">
-          <h1 className="text-center text-3xl font-mono font-semibold mb-5">
-            Upload a Project
-          </h1>
-          <form>
-            <div className="flex flex-col gap-5 justify-center w-full items-center">
-              <div className="relative">
-                <input
-                 {...register('title')}
-                  type="text"
-                  placeholder="Title of Project"
-                  className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
-                />
-                <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
-                  Title of project
-                </label>
-              </div>
-              <div className="relative">
-                <input
-                {...register('author')}
-                  type="text"
-                  placeholder="Author"
-                  className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
-                />
-                <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
-                  Author
-                </label>
-              </div>
-              <div className="relative">
-                <input
-                {...register('course')}
-                  type="text"
-                  placeholder="Course"
-                  className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
-                />
-                <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
-                  Course
-                </label>
-              </div>
-              <div className="relative">
-                <input {...register('file')} type="file" className="" />
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <button
-                className=" bg-black text-white rounded-md shadow-sm mt-5 w-72 py-2"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
-        </section>}
-        <section>
-          <div className="flex justify-center mb-10 mt-20">
-            <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
-              <input
-                className="bg-transparent outline-none pr-4 text-black placeholder-black"
-                type="text"
-                placeholder="Search..."
-              />
-              <div className="border-l border-black pl-3">hello</div>
-            </div>
+          <div className="bg-black text-white py-10 mt-5">
+          <h1 className="text-center text-2xl mb-10 ">Library services</h1>
+          <p className="text-xl mx-5 text-center">
+            The University Library provides specialized online and offline
+            services for all staff and students. We subscribed to the best of
+            databases that provides researches with peered reviewed articles
+            that impacts the quality of research output from the University
+          </p>
           </div>
-          <div className="mx-24">
-            <div className="bg-white p-3 h-28 w-48 border rounded-md">
-              <p>Title: whatever</p>
-              <p>Author: Kayode Fayemi</p>
-              <p>Course: CSC 431</p>
-              <a className="italic underline" href="www.kofman.com">
-                Link to project
-              </a>
+          <div>
+            <h2 className="text-center text-2xl mb-10 mt-10">About us</h2>
+            <p className="text-xl mx-5 text-center">
+              The University Library provides access to numerous online and
+              offline resources through subscription to renowned academic
+              databases.State of heart technological facilities such as Learning
+              Commons that aids effective teaching, learning and research are
+              provided for users.
+            </p>
+          </div>
+          <div className="mt-10">
+          <div className="h-[50vh] w-full relative">
+  <div className="h-full w-full relative">
+    <img className="h-full w-full object-cover object-top" src="https://media.istockphoto.com/id/1314585958/photo/african-american-teacher-shows-cards-with-letters-to-screen.jpg?s=612x612&w=0&k=20&c=8kfLli1GgG9_xNwCgGd_22CDZNYPgTzsBXeo96zYHnQ=" alt="" />
+    <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+  </div>
+  <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+    <h1 className="text-2xl font-semibold text-white text-center">Technology Education</h1>
+    <p className="text-xl font-mono text-white mt-10 text-center mx-5">
+      We will serve you as long as you are able to pay for all our services okay you caught us in the right place at the right time thinking about the book of psalms where all our prodigal daughters can be properly accessed and assembled{" "}
+    </p>
+  </div>
+</div>
+
+
+
+            <div className="h-[50vh] w-full relative bg-rose-700 bg-opacity-30">
+              {" "}
+              <div className=" w-full mt-10   absolute">
+                {" "}
+                <h1 className="text-2xl font-semibold text-white text-center">Computer Science Education</h1>
+                <p className="text-xl font-mono text-white mt-10 text-center mx-5">
+                  We will serve you as long as you are able to pay for all our
+                  services okay you caught us in the right place at the right
+                  time thinking about the book of psalms where all our prodigal
+                  daughters can be properly accessed and assembled{" "}
+                </p>
+              </div>{" "}
+              <img
+                className="h-full w-full object-cover object-top"
+                src="https://media.istockphoto.com/id/1401177650/photo/young-girl-with-curly-hair-holding-books-in-her-hands-inside-the-library-cute-girl-doing.jpg?s=612x612&w=0&k=20&c=I6YukVQY4Q969vNEgjv5ZxvbxfO_SJq_hH5M3PoXYTo="
+                alt=""
+              />{" "}
             </div>
-            <div className="bg-white p-3 h-28 w-48 border rounded-md">
-              <p>Title: whatever</p>
-              <p>Author: Kayode Fayemi</p>
-              <p>Course: CSC 431</p>
-              <a className="italic underline" href="www.kofman.com">
-                Link to project
-              </a>
+            <div className="h-[50vh] w-full relative bg-rose-700 bg-opacity-30">
+              {" "}
+              <div className=" w-full mt-10 absolute">
+                {" "}
+                <h1 className="text-2xl font-semibold text-white text-center mt-10">Educational Technology</h1>
+                <p className="text-xl font-mono text-white mt-10 text-center mx-5">
+                  We will serve you as long as you are able to pay for all our
+                  services okay you caught us in the right place at the right
+                  {" "}
+                </p>
+              </div>{" "}
+              <img
+                className="h-full w-full   object-cover object-top"
+                src="https://media.istockphoto.com/id/1314585897/photo/black-lady-talks-to-schoolgirl-with-tablet-and-shows-photos.jpg?s=612x612&w=0&k=20&c=FXWmCOij2hs6sG16_yXWNXh9hiKemsmgHaHSFQB2FDM="
+                alt=""
+              />{" "}
             </div>
           </div>
         </section>
-        <ToastContainer />
       </main>
+      <p className="text-center font-mono font-semibold">© 2022 COMSAVVY</p>
     </>
   );
 }
