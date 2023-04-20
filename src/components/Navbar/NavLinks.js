@@ -13,8 +13,8 @@ const NavLinks = () => {
       {links.map((link) => (
         <div>
           <div className="px-3 text-left md:cursor-pointer group">
-            <h1
-              className="py-7 flex justify-between items-center md:pr-0 pr-5 group"
+            <Link href = '/'
+              className="py-2 flex justify-between items-center md:pr-0 pr-5 group"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
                 setSubHeading("");
@@ -35,7 +35,7 @@ const NavLinks = () => {
               <span className="text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 group-hover:-mt-2">
                 <Icon icon="ion:chevron-down-outline" />
               </span>
-            </h1>
+            </Link>
             {link.submenu && (
               <div>
                 <div className="absolute top-20 hidden group-hover:md:block hover:md:block">
@@ -84,7 +84,7 @@ const NavLinks = () => {
                         ? setSubHeading(slinks.Head)
                         : setSubHeading("")
                     }
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center md:pr-0 pr-5"
+                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
                   >
                     {slinks.Head}
                   </h1>
@@ -105,12 +105,20 @@ const NavLinks = () => {
           </div>
         </div>
       ))}
-      <Link className="ml-3 mt-2" href="/signIn">Admin</Link>
-      <div className="ml-3 mt-2">
+      <Link className="ml-3 mt-3" href="/signIn">
+        Admin
+      </Link>
+      <div className="ml-3 mt-3">
         {" "}
         {session?.user && <button onClick={() => signOut()}>Sign out</button>}
       </div>
-     {session?.user &&  <Link className="ml-3 mt-2" href = '/addProject'>Add Project</Link>} 
+      <div className="mt-3">
+        {session?.user && (
+          <Link className="ml-3 " href="/addProject">
+            Add Project
+          </Link>
+        )}
+      </div>
     </>
   );
 };
