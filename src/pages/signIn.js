@@ -31,9 +31,7 @@ const Login = () => {
       });
       if (result.error) {
         toast.error(result.error);
-      } else {
-        toast('succesfull')
-      }
+      } 
     } catch (err) {
       toast.error(getError(err));
     }

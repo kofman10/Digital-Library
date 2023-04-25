@@ -1,92 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { signOut, useSession } from "next-auth/react";
-import { useForm } from "react-hook-form";
-import { getError } from "../utils/error";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
-import PdfViewer from "@/components/PdfViewer";
 import Navbar from "../components/Navbar/Navbar";
 import Swiperr from "../components/Swiperr";
 
 export default function Home() {
-  const { data: session } = useSession();
-  // console.log(session)
-
-  const [pdfData, setPdfData] = useState(null);
-
-  const {
-    handleSubmit,
-    register,
-    watch,
-    formState: { errors },
-  } = useForm();
-
-  // const filename = watch('filename')[0].name
-
-  const onSubmit = async (data) => {
-    const { title, author, course, filename } = data;
-    const formData = new FormData();
-
-    formData.append("file", filename[0]);
-    formData.append("upload_preset", "file_upload");
-
-    try {
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dtfxgvzze/upload",
-        formData
-      );
-
-      const filename = response.data.url;
-      console.log(filename);
-      const newProject = {
-        title,
-        author,
-        course,
-        filename,
-      };
-
-      await axios.post("/api/project", newProject);
-
-      toast("project uploaded successfully");
-    } catch (error) {
-      console.log(error);
-    }
-
-    // for (const value of formData.values()) {
-    //   console.log(value);
-    // }
-
-    // try {
-    //   await axios.post("/api/project", formData, {
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }});
-    //   toast("project uploaded successfully");
-    // } catch (err) {
-    //   toast.error(getError(err));
-    // }
-    //   const res = await fetch("http://localhost:3000/api/project", {
-    //     method: "POST",
-    //     body: formData,
-    // }).then((res) => res.json());
-    // alert(JSON.stringify(`${res.message}, status: ${res.status}`));
-  };
-
-  // useEffect(() => {
-  //   const fetchPdfData = async () => {
-  //     try{
-  //       const response = await fetch('http://localhost:3000/api/project');
-  //       // response?.map()
-  //       // setPdfData(pdfData);
-  //     } catch (error) {
-  //       console.log("failed to fetch pdf data", error);
-  //     }
-  //   }
-  //   fetchPdfData();
-  // }, []);
+ const [show1, setShow1] = useState(false)
+ const [show2, setShow2] = useState(false)
 
   return (
     <>
@@ -98,49 +18,109 @@ export default function Home() {
       </Head>
       <main className="h-full w-full">
         <Navbar />
-     
+
         <Swiperr />
         <section>
           <div className="bg-black text-white py-10 mt-5">
-          <h1 className="text-center text-2xl mb-10 ">Library services</h1>
-          <p className="text-xl mx-5 text-center">
-            The University Library provides specialized online and offline
-            services for all staff and students. We subscribed to the best of
-            databases that provides researches with peered reviewed articles
-            that impacts the quality of research output from the University
-          </p>
+            <h1 className="text-center text-2xl mb-10 font-bold">Who are we</h1>
+            <p className="text-center">
+              {" "}
+              Passionate About Education, Driven by Technology: Meet Our Team We
+              are a team of undergraduate students in the University Of Ilorin,
+              from Educational Technology Department with a passion for
+              technology and education.
+            </p>
+            <p onClick={() => setShow1(!show1)} className="mt-3 mb-3 ml-2 underline cursor-pointer">View more</p>
+          { show1 &&  <p className="mx-5 text-center">
+              We believe that education is the key to unlocking one's full
+              potential, and we are committed to developing innovative solutions
+              that can enhance the learning experience of students. Our team is
+              made up of individuals with diverse backgrounds and skill sets,
+              including web development, software engineering, and project
+              management. We have come together to build this platform with the
+              aim of making it easier for students and researchers to access
+              quality undergraduate projects. Our goal is to provide a
+              user-friendly platform where students can easily access and review
+              undergraduate projects that have been successfully completed by
+              their peers. We believe that by sharing knowledge and experience,
+              we can create a community of lifelong learners who are committed
+              to academic excellence. We are committed to maintaining the
+              highest standards of integrity and professionalism in all our
+              dealings with our stakeholders. Our team is constantly working to
+              improve the platform and provide exceptional service to our users.
+              Thank you for choosing our platform to access and review
+              undergraduate projects. We look forward to serving you and helping
+              you achieve your academic goals.
+            </p> }
           </div>
           <div>
-            <h2 className="text-center text-2xl mb-10 mt-10">About us</h2>
-            <p className="text-xl mx-5 text-center">
-              The University Library provides access to numerous online and
-              offline resources through subscription to renowned academic
-              databases.State of heart technological facilities such as Learning
-              Commons that aids effective teaching, learning and research are
-              provided for users.
+            <h2 className="text-center text-2xl mb-5 mt-5 font-bold">About us</h2>
+            <p className="text-center text-xl mb-3 font-bold">Our Story</p>
+
+            <p className=" mx-3">
+              We are two undergraduate students from the Educational Technology
+              Department in the University Of Ilorin. In the person of OYEDUN
+              ADEYINKA YUSUFF WITH MATRIC NUMBER: 18/25PJ039 (COMPUTER SCIENCE
+              AND EDUCATION) AND SHOAGA WURAOLA HASSANAT WITH MATRIC NUMBER:
+              18/25PC168 (EDUCATIONAL TECHNOLOGY)
             </p>
+            <p onClick={() => setShow2(!show2)} className="mt-3 mb-3 ml-3 underline cursor-pointer">View more</p>
+          { show2 && <div className="flex flex-col gap-3 mx-3"> <p>
+              We are passionate about making research projects easily accessible
+              to our peers. With this in mind, we developed this digital library
+              as our final year project to serve as a platform for sharing
+              undergraduate projects.
+            </p>
+            <p className="text-center text-xl font-bold">Our mission</p>
+            <p>
+              Our mission is to make educational research projects readily
+              accessible to students, educators, and researchers in the
+              Educational Technology field. We believe that sharing knowledge
+              through research is essential for academic growth and development.
+            </p>
+            <p className="text-center text-xl font-bold">Our Vision</p>
+            <p>
+              We envision a world where educational research projects are easily
+              accessible and available to anyone who needs them. We hope to
+              contribute to this vision by providing a platform for
+              undergraduate students to share their research with a wider
+              audience{" "}
+            </p> 
+            </div>}
+            <Link className="underline ml-3" href="/contact">
+              GET IN TOUCH
+            </Link>
           </div>
           <div className="mt-10">
-          <div className="h-[50vh] w-full relative">
-  <div className="h-full w-full relative">
-    <img className="h-full w-full object-cover object-top" src="https://media.istockphoto.com/id/1314585958/photo/african-american-teacher-shows-cards-with-letters-to-screen.jpg?s=612x612&w=0&k=20&c=8kfLli1GgG9_xNwCgGd_22CDZNYPgTzsBXeo96zYHnQ=" alt="" />
-    <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
-  </div>
-  <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-    <h1 className="text-2xl font-semibold text-white text-center">Technology Education</h1>
-    <p className="text-xl font-mono text-white mt-10 text-center mx-5">
-      We will serve you as long as you are able to pay for all our services okay you caught us in the right place at the right time thinking about the book of psalms where all our prodigal daughters can be properly accessed and assembled{" "}
-    </p>
-  </div>
-</div>
-
-
+            <div className="h-[50vh] w-full relative">
+              <div className="h-full w-full relative">
+                <img
+                  className="h-full w-full object-cover object-top"
+                  src="https://media.istockphoto.com/id/1314585958/photo/african-american-teacher-shows-cards-with-letters-to-screen.jpg?s=612x612&w=0&k=20&c=8kfLli1GgG9_xNwCgGd_22CDZNYPgTzsBXeo96zYHnQ="
+                  alt=""
+                />
+                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+              </div>
+              <div className="w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+                <h1 className="text-2xl font-semibold text-white text-center">
+                  Technology Education
+                </h1>
+                <p className="text-xl font-mono text-white mt-10 text-center mx-5">
+                  We will serve you as long as you are able to pay for all our
+                  services okay you caught us in the right place at the right
+                  time thinking about the book of psalms where all our prodigal
+                  daughters can be properly accessed and assembled{" "}
+                </p>
+              </div>
+            </div>
 
             <div className="h-[50vh] w-full relative bg-rose-700 bg-opacity-30">
               {" "}
               <div className=" w-full mt-10   absolute">
                 {" "}
-                <h1 className="text-2xl font-semibold text-white text-center">Computer Science Education</h1>
+                <h1 className="text-2xl font-semibold text-white text-center">
+                  Computer Science Education
+                </h1>
                 <p className="text-xl font-mono text-white mt-10 text-center mx-5">
                   We will serve you as long as you are able to pay for all our
                   services okay you caught us in the right place at the right
@@ -158,11 +138,12 @@ export default function Home() {
               {" "}
               <div className=" w-full mt-10 absolute">
                 {" "}
-                <h1 className="text-2xl font-semibold text-white text-center mt-10">Educational Technology</h1>
+                <h1 className="text-2xl font-semibold text-white text-center mt-10">
+                  Educational Technology
+                </h1>
                 <p className="text-xl font-mono text-white mt-10 text-center mx-5">
                   We will serve you as long as you are able to pay for all our
-                  services okay you caught us in the right place at the right
-                  {" "}
+                  services okay you caught us in the right place at the right{" "}
                 </p>
               </div>{" "}
               <img
@@ -171,6 +152,43 @@ export default function Home() {
                 alt=""
               />{" "}
             </div>
+          </div>
+        </section>
+        <section className="bg-black text-white py-3">
+          <h2 className="text-center text-xl font-bold mt-5 mb-5">Our Services</h2>
+          <div className="flex flex-col gap-3 ml-3">
+
+          <p>Facilitating Access to High-Quality Undergraduate Projects</p>
+          <p>
+           <span className="font-semibold">Project Repository: </span>  Our digital library serves as a repository for
+            Educational Technology undergraduate projects. We make it easy for
+            students to upload their research projects and for others to browse
+            the available projects.
+          </p>
+          <p>
+           <span className="font-semibold">Search and Browse:</span>  Our platform offers a user-friendly interface
+            that makes it easy to search and browse through the repository of
+            undergraduate projects. Users can filter projects by topic or
+            keyword, making it easy to find the research they need.
+          </p>
+          <p>
+           <span className="font-semibold">Request Access:</span> While users cannot download the projects directly,
+            they can request access to the full project by following necessary
+            steps. We provide clear instructions on how to request access to the
+            project from the department secretariat.
+          </p>
+          <p>
+           <span className="font-semibold">Feedback and Review:</span>  Our platform allows users to provide feedback
+            and reviews on undergraduate projects. This feature encourages
+            constructive criticism and improves the quality of research projects
+            on our platform.
+          </p>
+          <p>
+           <span className="font-semibold">Networking:</span> Our digital library provides an opportunity for
+            students, educators, and researchers to network with each other.
+            Users can connect with others in their field, collaborate on
+            research projects, and share ideas and resources
+          </p>
           </div>
         </section>
       </main>
