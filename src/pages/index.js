@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "../components/Navbar/Navbar";
 import Swiperr from "../components/Swiperr";
+
 
 export default function Home() {
   const [show1, setShow1] = useState(false);
@@ -100,10 +102,12 @@ export default function Home() {
           <div className="mt-10">
             <div className="h-[50vh] w-full relative">
               <div className="h-full w-full relative">
-                <img
+                <Image
                   className="h-full w-full object-cover object-top"
-                  src="https://media.istockphoto.com/id/1314585958/photo/african-american-teacher-shows-cards-with-letters-to-screen.jpg?s=612x612&w=0&k=20&c=8kfLli1GgG9_xNwCgGd_22CDZNYPgTzsBXeo96zYHnQ="
+                  src={'/techedu.jpeg'}
                   alt=""
+                  width={500}
+                  height={500}
                 />
                 <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
               </div>
@@ -120,9 +124,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="h-[50vh] w-full relative bg-rose-700 bg-opacity-30">
+            <div className="h-[50vh] w-full relative">
               {" "}
-              <div className=" w-full mt-10   absolute">
+              <div className=" w-full mt-10 absolute z-20">
                 {" "}
                 <h1 className="text-2xl font-semibold text-white text-center">
                   Computer Science Education
@@ -134,15 +138,18 @@ export default function Home() {
                   daughters can be properly accessed and assembled{" "}
                 </p>
               </div>{" "}
-              <img
+              <Image
                 className="h-full w-full object-cover object-top"
-                src="https://media.istockphoto.com/id/1401177650/photo/young-girl-with-curly-hair-holding-books-in-her-hands-inside-the-library-cute-girl-doing.jpg?s=612x612&w=0&k=20&c=I6YukVQY4Q969vNEgjv5ZxvbxfO_SJq_hH5M3PoXYTo="
+                src={'/compsciedu.jpeg'}
+                width={500}
+                height={500}
                 alt=""
               />{" "}
+               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
-            <div className="h-[50vh] w-full relative bg-rose-700 bg-opacity-30">
+            <div className="h-[50vh] w-full relative">
               {" "}
-              <div className=" w-full mt-10 absolute">
+              <div className=" w-full mt-10 absolute z-20">
                 {" "}
                 <h1 className="text-2xl font-semibold text-white text-center mt-10">
                   Educational Technology
@@ -152,11 +159,14 @@ export default function Home() {
                   services okay you caught us in the right place at the right{" "}
                 </p>
               </div>{" "}
-              <img
+              <Image
                 className="h-full w-full   object-cover object-top"
-                src="https://media.istockphoto.com/id/1314585897/photo/black-lady-talks-to-schoolgirl-with-tablet-and-shows-photos.jpg?s=612x612&w=0&k=20&c=FXWmCOij2hs6sG16_yXWNXh9hiKemsmgHaHSFQB2FDM="
+                src={'/edutech.jpeg'}
+                width={500}
+                height={500}
                 alt=""
               />{" "}
+               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
           </div>
         </section>
@@ -164,7 +174,7 @@ export default function Home() {
           <h2 className="text-center text-xl font-bold mt-5 mb-5">
             Our Services
           </h2>
-          <div className="flex flex-col gap-3 ml-3">
+          <div className="flex flex-col text-justify gap-3 mx-3">
             <p>Facilitating Access to High-Quality Undergraduate Projects</p>
             <p>
               <span className="font-semibold">Project Repository: </span> Our

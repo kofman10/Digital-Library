@@ -11,7 +11,6 @@ const addProject = () => {
   const {
     handleSubmit,
     register,
-    watch,
     formState: { errors },
   } = useForm();
 
