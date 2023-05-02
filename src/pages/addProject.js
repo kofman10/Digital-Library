@@ -16,15 +16,15 @@ const addProject = () => {
 
   // const filename = watch('filename')[0].name
   const [loading, setLoading] = useState(false);
-  const [loading1, setLoading1] = useState(false)
-  
+  const [loading1, setLoading1] = useState(false);
+
   const onSubmit = async (data) => {
-    const { title, author, course, filename } = data;
+    const { title, author, course, supervisor, abstract, filename, year } = data;
     const formData = new FormData();
 
     formData.append("file", filename[0]);
     formData.append("upload_preset", "file_upload");
-
+  console.log(data)
     try {
       setLoading(true);
       const response = await axios.post(
@@ -34,10 +34,13 @@ const addProject = () => {
 
       const filename = response.data.url;
       const newProject = {
+        year,
         title,
         author,
         course,
         filename,
+        supervisor,
+        abstract
       };
 
       await axios.post("/api/project", newProject);
@@ -47,7 +50,7 @@ const addProject = () => {
       toast.error(getError(err));
       setLoading(false);
     }
-    window.location.reload()
+    window.location.reload();
   };
   // useEffect(() => {
   //   window.location.reload();
@@ -95,6 +98,19 @@ const addProject = () => {
         </h1>
         <form onSubmit={handleSubmit(onSubmit)} encType="multipart/form-data">
           <div className="flex flex-col gap-5 justify-center w-full items-center">
+            
+          <div className="flex-none">
+              <div className="flex gap-2">
+                <label>Select Year : </label>
+              <select className="border border-black" {...register("year")} name="Year" id="year">
+                <option value="2022/2023">2022/2023</option>
+                <option value="2021/2022">2021/2022</option>
+                <option value="2020/2021">2020/2021</option>
+                <option value="2019/2020">2019/2020</option>
+                <option value="2018/2019">2018/2019</option>
+              </select>
+              </div>
+            </div>
             <div className="relative">
               <input
                 required
@@ -131,6 +147,20 @@ const addProject = () => {
                 Course
               </label>
             </div>
+
+            <div className="relative">
+              <input
+                required
+                {...register("supervisor")}
+                type="text"
+                placeholder="Supervisor"
+                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
+              />
+              <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
+                Supervisor
+              </label>
+            </div>
+            <textarea {...register("abstract")} placeholder="Upload Abstract" className="border border-black focus:outline-none w-72" id="" cols="20" rows="10" />
             <div className="relative">
               *
               <input
@@ -140,6 +170,7 @@ const addProject = () => {
                 className=""
               />
             </div>
+           
           </div>
           <div className="flex justify-center">
             <button
