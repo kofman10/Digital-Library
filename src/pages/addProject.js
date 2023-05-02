@@ -100,7 +100,7 @@ const addProject = () => {
           <div className="flex flex-col gap-5 justify-center w-full items-center">
             
           <div className="flex-none">
-              <div className="flex gap-2">
+              <div className="flex gap-2 items-center">
                 <label>Select Year : </label>
               <select className="border border-black" {...register("year")} name="Year" id="year">
                 <option value="2022/2023">2022/2023</option>
