@@ -71,7 +71,7 @@ const edutech = () => {
             />{" "}
           </div>
         ) : (
-           <div className="flex justify-center">
+           <div className="flex justify-center mb-10">
           <div className="w-5/6 flex flex-col gap-4">
             {filteredProject.map((item) => (
               <Projectcard key={item._id} project={item} />
