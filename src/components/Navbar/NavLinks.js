@@ -13,7 +13,7 @@ const NavLinks = () => {
       {links.map((link) => (
         <div>
           <div className="px-3 text-left md:cursor-pointer group">
-            <Link href = '/'
+            <Link href = {link.linko}
               className="py-2 flex justify-between items-center md:pr-0 pr-5 group"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
@@ -78,16 +78,12 @@ const NavLinks = () => {
             {link.sublinks.map((slinks) => (
               <div>
                 <div>
-                  <h1
-                    onClick={() =>
-                      subHeading !== slinks.Head
-                        ? setSubHeading(slinks.Head)
-                        : setSubHeading("")
-                    }
+                  <Link href = {slinks.linka}
+                    
                     className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
                   >
                     {slinks.Head}
-                  </h1>
+                  </Link>
                   <div
                     className={`${
                       subHeading === slinks.Head ? "md:hidden" : "hidden"

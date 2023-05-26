@@ -1,23 +1,20 @@
 export const links = [
   {
     name: "About us",
+    linko: '/aboutus',
     submenu: false,
     sublinks: [
     
     ],
   },
   {
-    name: "Services",
-    submenu: false,
-    sublinks: [
-    ],
-  },
-  {
     name: "Projects",
     submenu: true,
+    linko: '#projects',
     sublinks: [
       {
         Head: "Computer Science Education",
+        linka: 'compsciedu',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },
@@ -28,6 +25,7 @@ export const links = [
       },
       {
         Head: "Education Technology",
+        linka: 'edutech',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },
@@ -38,6 +36,7 @@ export const links = [
       },
       {
         Head: "Technology Education",
+        linka: 'techedu',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },

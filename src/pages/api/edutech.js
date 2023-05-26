@@ -6,7 +6,6 @@ const handler = async (req, res) => {
 
   await dbConnect();
 
-
   try {
     if (method === "POST") {
       const project = await Project.create(req.body);
@@ -16,21 +15,16 @@ const handler = async (req, res) => {
 
     if (method === "GET") {
       try {
-        const projects = await Project.find();
+      
+        const projects = await Project.find({
+          course: { $regex: /education\s*technology/i } }
+        );
         res.status(200).json(projects);
-        // console.log(projects)
       } catch (error) {
         res.status(500).json(error);
       }
     }
-    // res.status(201).send({
-    //   message: "Created project!",
-    //   _id: project._id,
-    //   title: project.title,
-    //   author: project.author,
-    //   course: project.course,
-    //   //  filename: project.filename,
-    // });
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -38,3 +32,4 @@ const handler = async (req, res) => {
 };
 
 export default handler;
+

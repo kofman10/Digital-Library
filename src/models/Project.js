@@ -8,6 +8,7 @@ const projectSchema = new mongoose.Schema(
     year: {type : String, required: true },
     supervisor: {type : String, required: true },
     abstract : {type : String, required: true },
+    keywords : {type : String, required: true },
     filename: { type: String, required: true },
   },
   {
