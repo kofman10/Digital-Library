@@ -70,7 +70,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
 
-            <div className="h-[50vh] w-full relative">
+            <div className="h-[50vh] w-full relative mt-5 mb-5">
               {" "}
               <div className=" w-full bottom-16 absolute z-20">
                 {" "}

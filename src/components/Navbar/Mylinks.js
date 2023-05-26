@@ -24,7 +24,7 @@ export const links = [
         ],
       },
       {
-        Head: "Education Technology",
+        Head: "Educational Technology",
         linka: 'edutech',
         sublink: [
           // { name: "T-shirt", link: "/" },
