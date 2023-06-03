@@ -17,21 +17,22 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full w-full">
+      <main className="h-full w-full bg-gray-300">
         <Navbar />
 
         <Swiperr />
         <section>
-          <div className="bg-black text-white py-10 mt-5 px-5">
-            <Link
+        <Link
               href="aboutus"
-              className="flex justify-center underline text-2xl mb-10 font-bold"
+              className="flex justify-center underline text-3xl uppercase mb-10 mt-10 font-semibold"
             >
-              Who are we
+              -Who Are We
             </Link>
+          <div className="bg-black text-white py-10 mt-5 px-5">
+            
             <h1 className="mb-3 text-center font-bold text-lg">Our Mission </h1>
 
-            <p>
+            <p className="text-center">
               {" "}
               Our mission is to make educational research projects readily
               accessible to students, educators, and researchers in the
@@ -42,7 +43,7 @@ export default function Home() {
               Our Vision
             </h1>
 
-            <p>
+            <p className="text-center">
               {" "}
               We envision a world where educational research projects are easily
               accessible and available to anyone who needs them. We hope to
@@ -51,8 +52,12 @@ export default function Home() {
               audience
             </p>
           </div>
-          <div className="mt-10 mx-5">
-            <div className="h-[50vh] w-full relative">
+          <h2 className="text-3xl mt-5 font-semibold text-center">---LATEST PROJECTS---</h2>
+          <div className="flex flex-col justify-center">
+          <div className="mt-10  mx-auto">
+            <Link href = '/compsciedu'>
+
+            <div className="h-[40vh] w-[40vh] relative">
               {" "}
               <div className=" w-full bottom-16 absolute z-20">
                 {" "}
@@ -69,8 +74,9 @@ export default function Home() {
               />{" "}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
-
-            <div className="h-[50vh] w-full relative mt-5 mb-5">
+            </Link>
+            <Link href = '/edutech'>
+            <div className="h-[40vh] w-[40vh] relative mt-5 mb-5">
               {" "}
               <div className=" w-full bottom-16 absolute z-20">
                 {" "}
@@ -79,7 +85,7 @@ export default function Home() {
                 </h1>
               </div>{" "}
               <Image
-                className="h-full w-full   object-cover object-top"
+                className="h-full w-full object-cover object-top"
                 src={"/edutech.jpeg"}
                 width={500}
                 height={500}
@@ -87,7 +93,10 @@ export default function Home() {
               />{" "}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
-            <div className="h-[50vh] w-full relative">
+
+            </Link>
+            <Link href = '/techedu'>
+            <div className="h-[40vh] w-[40vh] relative">
               {" "}
               <div className=" w-full bottom-16 absolute z-20">
                 {" "}
@@ -104,6 +113,10 @@ export default function Home() {
               />{" "}
               <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>
+
+            </Link>
+          </div>
+
           </div>
         </section>
         {/**  <section className="bg-black text-white py-3">

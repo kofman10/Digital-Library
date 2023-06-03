@@ -42,7 +42,7 @@ const edutech = () => {
   return (
     <div>
         <Navbar />
-          <section>
+          <section className="bg-gray-300">
           <Image className = "h-full w-full object-cover object-top" src={"/edutech2.jpg"} width={500} height={500} />
 
         <div className="flex justify-center mb-10 mt-20">
@@ -71,7 +71,7 @@ const edutech = () => {
             />{" "}
           </div>
         ) : (
-           <div className="flex justify-center mb-10">
+           <div className="flex justify-center pb-10">
           <div className="w-5/6 flex flex-col gap-4">
             {filteredProject.map((item) => (
               <Projectcard key={item._id} project={item} />

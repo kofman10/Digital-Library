@@ -62,7 +62,7 @@ const addProject = () => {
   return (
     <div>
       <Navbar />
-      <section className="mt-10 mb-10">
+      <section className="pt-10 pb-10 bg-gray-300">
         <h1 className="text-center text-3xl font-mono font-semibold mb-5">
           Upload a Project
         </h1>
@@ -83,7 +83,7 @@ const addProject = () => {
             </div>
           <div className="relative">
               <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="Year" id="year">
-                <option disabled>Select Year</option>
+                <option>Select Year</option>
                 <option value="2022/2023">2022/2023</option>
                 <option value="2021/2022">2021/2022</option>
                 <option value="2020/2021">2020/2021</option>
@@ -92,16 +92,12 @@ const addProject = () => {
               </select>
             </div>
             <div className="relative">
-              <input
-                required
-                {...register("course")}
-                type="text"
-                placeholder="Programme"
-                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
-              />
-              <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
-                Course
-              </label>
+            <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("course")} name="course" id="course">
+                <option >Select programme</option>
+                <option value="Computer Science Education">Computer Science Education</option>
+                <option value="Educational Technology">Educational Technology</option>
+                <option value="Technology Education">Technology Education</option>
+              </select>
             </div>
             <div className="relative">
               <input

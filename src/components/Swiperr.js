@@ -36,7 +36,6 @@ const Swiperr = () => {
                   Explore the World of Undergraduate Projects in Educational
                   Technology
                 </p>
-                <Link href = '/aboutus' className="cursor-pointer underline" >learn more</Link >
               </div>{" "}
               <Image
                 className="h-full w-full  object-cover"
@@ -59,7 +58,6 @@ const Swiperr = () => {
                   EDUCATIONAL TECHNOLOGY PROJECT LIBRARY {" "}
                 </h1>
                 <p>Discover the Cutting-Edge Projects of Our Educational Technology Scholars </p>
-                <div className="cursor-pointer underline">learn more</div>
               </div>{" "}
               <Image
                 className="h-full w-full  object-cover object-top"
