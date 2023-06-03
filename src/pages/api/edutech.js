@@ -17,7 +17,7 @@ const handler = async (req, res) => {
       try {
       
         const projects = await Project.find({
-          course: { $regex: /education\s*technology/i } }
+          course: { $regex: /educational\s*technology/i } }
         );
         res.status(200).json(projects);
       } catch (error) {
