@@ -6,44 +6,51 @@ import Projectcard from "../components/Projectcard";
 import Navbar from "@/components/Navbar/Navbar";
 
 const edutech = () => {
-    const [loading1, setLoading1] = useState(false);
-    const [project, setProject] = useState([]);
-    const [filteredProject, setFilteredproject] = useState([]);
-    const [searchQuery, setSearchQuery] = useState("");
-  
-    useEffect(() => {
-      const getProject = async () => {
-        setLoading1(true);
-        try {
-          const response = await axios.get("/api/edutech");
-          setProject(response.data);
-          setFilteredproject(response.data);
-          setLoading1(false);
-        } catch (err) {
-          console.log(err);
-          setLoading1(false);
-        }
-      };
-      getProject();
-    }, []);
-    const handleSearch = (event) => {
-      const query = event.target.value;
-      setSearchQuery(query);
-  
-      const searchList = project.filter(
-        (item) =>
-          item.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-          item.course.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
-          item.author.toLowerCase().indexOf(query.toLowerCase()) !== -1
-      );
-  
-      setFilteredproject(searchList);
+  const [loading1, setLoading1] = useState(false);
+  const [project, setProject] = useState([]);
+  const [filteredProject, setFilteredproject] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  useEffect(() => {
+    const getProject = async () => {
+      setLoading1(true);
+      try {
+        const response = await axios.get("/api/edutech");
+        setProject(response.data);
+        setFilteredproject(response.data);
+        setLoading1(false);
+      } catch (err) {
+        console.log(err);
+        setLoading1(false);
+      }
     };
+    getProject();
+  }, []);
+  const handleSearch = (event) => {
+    const query = event.target.value;
+    setSearchQuery(query);
+
+    const searchList = project.filter(
+      (item) =>
+        item.title.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        item.course.toLowerCase().indexOf(query.toLowerCase()) !== -1 ||
+        item.author.toLowerCase().indexOf(query.toLowerCase()) !== -1
+    );
+
+    setFilteredproject(searchList);
+  };
   return (
     <div>
-        <Navbar />
-          <section className="bg-gray-300">
-          <Image className = "h-full w-full object-cover object-top" src={"/edutech2.jpg"} width={500} height={500} />
+      <Navbar />
+      <section className="bg-gray-300">
+        <div className="w-full h-96 relative">
+          <Image
+            className=""
+            src={"/edutech2.jpeg"}
+            fill={true}
+            alt="edutech"
+          />
+        </div>
 
         <div className="flex justify-center mb-10 mt-20">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
@@ -71,18 +78,17 @@ const edutech = () => {
             />{" "}
           </div>
         ) : (
-           <div className="flex justify-center pb-10">
-          <div className="w-5/6 flex flex-col gap-4">
-            {filteredProject.map((item) => (
-              <Projectcard key={item._id} project={item} />
-            ))}
+          <div className="flex justify-center pb-10">
+            <div className="w-5/6 flex flex-col gap-4">
+              {filteredProject.map((item) => (
+                <Projectcard key={item._id} project={item} />
+              ))}
+            </div>
           </div>
-
-           </div>
         )}
       </section>
     </div>
-  )
-}
+  );
+};
 
 export default edutech;

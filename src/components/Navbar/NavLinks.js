@@ -8,6 +8,8 @@ const NavLinks = () => {
   const { data: session } = useSession();
   const [heading, setHeading] = useState("");
   const [subHeading, setSubHeading] = useState("");
+
+  
   return (
     <>
       {links.map((link) => (
@@ -106,7 +108,7 @@ const NavLinks = () => {
       </Link>
       <div className="ml-3 mt-3">
         {" "}
-        {session?.user && <button onClick={() => signOut()}>Sign out</button>}
+        {session?.user && <button onClick={() => signOut({callbackUrl: "/"})}>Sign out</button>}
       </div>
       <div className="mt-3">
         {session?.user && (

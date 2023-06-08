@@ -43,14 +43,22 @@ const compsciedu = () => {
     <div>
       <Navbar />
       <section className="bg-gray-300">
-        <Image className = "h-full w-full object-cover object-top" src={"/compsciedu2.jpg"} width={500} height={500} />
+      <div className="w-full h-96 relative">
+          <Image
+            className=""
+            src={"/compsciedu2.jpg"}
+            fill={true}
+            alt="edutech"
+          />
+        </div>
+       
         <div className="flex justify-center mb-10 mt-20">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
             <input
               required
               className="bg-transparent outline-none pr-4 text-black placeholder-black"
               type="text"
-              placeholder = "Search..."
+              placeholder="Search..."
               onChange={handleSearch}
               value={searchQuery}
             />
