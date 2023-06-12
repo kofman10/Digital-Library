@@ -34,14 +34,14 @@ const Projectcard = ({ project }) => {
         </div>
       </div>
       
-      <div className="flex gap-5 mt-[12px]">
+      <div className="flex gap-[21px] mt-[12px]">
       <p className=" ">Programme:</p>
       <p>
             {" "}
             <b>{project.course}</b>
           </p>
       </div>
-      <div className="flex gap-7 mt-[12px]">
+      <div className="flex gap-[29px] mt-[12px]">
       <p className=" ">Supervisor:</p>
       <p>
             {" "}
