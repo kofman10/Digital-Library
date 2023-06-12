@@ -21,7 +21,7 @@ const Navbar = () => {
           />
         </div>
           </Link>
-          <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
+          <div className="text-3xl md:hidden mr-6" onClick={() => setOpen(!open)}>
       
             <Icon icon = {`${open ? "material-symbols:close" : "material-symbols:menu"}`} />
           </div>
