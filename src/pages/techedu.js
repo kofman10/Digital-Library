@@ -43,8 +43,9 @@ const techedu = () => {
     <div>
       <Navbar />
       <section className="bg-gray-300">
-        <div className="w-full h-96 relative">
-          <Image src={"/techeddu.jpg"} fill={true} alt="edutech" />
+        <div className="w-full h-[75vh] relative">
+
+        <Image src={"/techeddu.jpg"}  fill={true} alt="edutech" />
         </div>
 
         <div className="flex justify-center mb-10 mt-20">

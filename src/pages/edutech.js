@@ -43,14 +43,16 @@ const edutech = () => {
     <div>
       <Navbar />
       <section className="bg-gray-300">
-        <div className="w-full h-96 relative">
+        <div className="w-full h-[75vh] relative">
           <Image
             className=""
             src={"/edutech2.jpeg"}
-            fill={true}
+           fill={true}
             alt="edutech"
           />
+
         </div>
+  
 
         <div className="flex justify-center mb-10 mt-20">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">

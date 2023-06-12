@@ -2,14 +2,25 @@ import React, { useState } from "react";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import { Icon } from '@iconify/react';
+import Image from "next/image";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-white">
+    <nav className="bg-white border-b-2 border-b-sky-500">
       <div className="flex items-center font-medium justify-around">
-        <div className="z-50 p-5 md:w-auto w-full flex justify-between">
-          <Link href= '/'>EDUTECH PROJECT</Link>
+        <div className="z-50 md:w-auto w-full h-full items-center flex justify-between">
+          <Link href= '/'> 
+          <div className="w-28 h-[83px] relative">
+          <Image
+            className=""
+            src={"/logo.png"}
+           fill = {true}
+            alt="logo"
+          />
+        </div>
+          </Link>
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
       
             <Icon icon = {`${open ? "material-symbols:close" : "material-symbols:menu"}`} />

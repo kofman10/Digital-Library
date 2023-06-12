@@ -13,7 +13,7 @@ import "swiper/css/autoplay";
 const Swiperr = () => {
 
   return (
-    <div className="mx-3 pt-11">
+    <div className="mx-3">
       <Swiper
         // install Swiper modules
         modules={[EffectFade, Autoplay]}
@@ -24,49 +24,48 @@ const Swiperr = () => {
         <div>
           <SwiperSlide>
             {" "}
-            <div className="h-[35vh] w-full relative ">
+            <div className="w-full h-72 lg:h-[75vh] relative ">
               {" "}
-              <div className=" w-full mt-10 absolute text-white text-center z-20">
+              <div className=" w-full h-full mt-20 absolute text-white text-center z-20">
                 {" "}
-                <h1 className="text-2xl font-mono text-white text-center">
+                <h1 className="text-2xl font-bold font-mono text-white text-center">
                   {" "}
                   WELCOME TO THE DEPARTMENT LIBRARY{" "}
                 </h1>
-                <p>
+                <p className="font-semibold mt-3">
                   Explore the World of Undergraduate Projects in Educational
                   Technology
                 </p>
               </div>{" "}
+              <div>
+
+              </div>
               <Image
-                className="h-full w-full  object-cover"
-                src={'/firstbackground.jpeg'}
-                width={500}
-                height={500}
+
+                src={'/homepic1.png'}
+               fill={true}
                 alt=""
               />{" "}
-                  <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>{" "}
           </SwiperSlide>
           <SwiperSlide>
             {" "}
-            <div className="h-[35vh] w-full relative bg-rose-700 bg-opacity-30">
+            <div className="w-full h-72 lg:h-[75vh] relative">
               {" "}
-              <div className=" w-full mt-10  items absolute text-white text-center z-20">
+              <div className=" w-full h-full mt-20  items absolute text-white text-center z-20">
                 {" "}
-                <h1 className="text-2xl font-mono">
+                <h1 className="text-2xl font-bold font-mono">
                   {" "}
                   EDUCATIONAL TECHNOLOGY PROJECT LIBRARY {" "}
                 </h1>
-                <p>Discover the Cutting-Edge Projects of Our Educational Technology Scholars </p>
+                <p className="font-semibold mt-3">Discover the Cutting-Edge Projects of Our Educational Technology Scholars </p>
               </div>{" "}
               <Image
-                className="h-full w-full  object-cover object-top"
-                src={'/secondbackground.jpeg'}
-                width={500}
-                height={500}
+               
+                src={'/homepic2.png'}
+                fill={true}
                 alt=""
               />{" "}
-                             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
             </div>{" "}
           </SwiperSlide>
         </div>

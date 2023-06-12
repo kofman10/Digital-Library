@@ -11,11 +11,11 @@ const Projectcard = ({ project }) => {
       <div className="">
       <div className="flex flex-row gap-10">
         <div className="flex flex-col gap-3">
-          <p>Author:</p>
-          <p>Year:</p>
+          <p>Author(s):</p>
+          <p>Session:</p>
           <p>Title:</p>
           <p>Programme:</p>
-          <p className="mt-6 sm:mt-0">Supervisor:</p>
+         
         </div>
         <div className="flex flex-col gap-3 relative w-full">
           <p>
@@ -33,13 +33,16 @@ const Projectcard = ({ project }) => {
           <p className=" font-bold">
             {project.course}
           </p>
-          <p>
+         
+        </div>
+      </div>
+      <div className="flex gap-12 mt-[12px]">
+      <p className=" ">Supervisor:</p>
+      <p>
             {" "}
             <b>{project.supervisor}</b>
           </p>
-        </div>
       </div>
-
       </div>
       {/* <p>Author: <b>{project.author} </b></p>
       <p>Year: <b>{project.year}</b></p>

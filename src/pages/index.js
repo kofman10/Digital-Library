@@ -6,8 +6,7 @@ import Navbar from "../components/Navbar/Navbar";
 import Swiperr from "../components/Swiperr";
 
 export default function Home() {
-  const [show1, setShow1] = useState(false);
-  const [show2, setShow2] = useState(false);
+  
 
   return (
     <>

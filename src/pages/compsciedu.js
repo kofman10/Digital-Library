@@ -43,12 +43,12 @@ const compsciedu = () => {
     <div>
       <Navbar />
       <section className="bg-gray-300">
-      <div className="w-full h-96 relative">
+      <div className="w-full h-[75vh] relative">
           <Image
             className=""
             src={"/compsciedu2.jpg"}
             fill={true}
-            alt="edutech"
+            alt="computerscience"
           />
         </div>
        
