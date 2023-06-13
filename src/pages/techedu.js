@@ -75,7 +75,7 @@ const techedu = () => {
           </div>
         ) : (
           <div className="flex justify-center pb-10">
-            <div className="w-5/6 flex flex-col gap-4">
+            <div className="w-full flex flex-col gap-4">
               {filteredProject.map((item) => (
                 <Projectcard key={item._id} project={item} />
               ))}
