@@ -34,16 +34,16 @@ const NavLinks = () => {
                   />
                 )}
               </span>
-              <span className="text-xl md:mt-1 md:ml-2  md:block hidden group-hover:rotate-180 group-hover:-mt-2">
+              <span className="text-xl md:mt-1 md:ml-2 hidden group-hover:rotate-180 group-hover:-mt-2">
                 <Icon icon="ion:chevron-down-outline" />
               </span>
             </Link>
-            {link.submenu && (
+            {link.submenu === true && (
               <div>
-                <div className="absolute top-20 hidden group-hover:md:block hover:md:block">
+                <div className="absolute hidden z-0 top-20 group-hover:md:block hover:md:block">
                   <div className="py-3">
                     <div
-                      className="w-4 h-4 left-3 absolute 
+                      className="w-4 h-4 left-3 z-10 
                     mt-1 bg-white rotate-45"
                     ></div>
                   </div>
@@ -103,14 +103,14 @@ const NavLinks = () => {
           </div>
         </div>
       ))}
-      <Link className="ml-3 mt-3" href="/signIn">
+      <Link className="ml-3 mt-3 md:mt-0" href="/signIn">
         Admin
       </Link>
-      <div className="ml-3 mt-3">
+      <div className="ml-3 mt-3 md:mt-0">
         {" "}
         {session?.user && <button onClick={() => signOut({callbackUrl: "/"})}>Sign out</button>}
       </div>
-      <div className="mt-3">
+      <div className="mt-3 md:mt-0">
         {session?.user && (
           <Link className="ml-3 " href="/addProject">
             Add Project

@@ -9,31 +9,28 @@ const Projectcard = ({ project }) => {
   return (
     <div className="bg-white p-2 border rounded-md flex flex-col gap-3">
       <div className="">
-      <div className="flex flex-row gap-10">
-        <div className="flex flex-col gap-3">
-          <p>Author(s):</p>
-          <p>Session:</p>
-          <p>Title:</p>
-         
-        </div>
-        <div className="flex flex-col gap-3 relative w-full">
-          <p>
+    
+      <div className="flex gap-[41px] mt-[12px]">
+      <p className=" ">Author(s):</p>
+      <p>
             {" "}
-            <b>{project.author} </b>
+            <b>{project.author}</b>
           </p>
-          <p>
+      </div>
+      <div className="flex gap-[53px] mt-[12px]">
+      <p className=" ">Session:</p>
+      <p>
             {" "}
             <b>{project.year}</b>
           </p>
-          <p>
+      </div>
+      <div className="flex gap-[75px] mt-[12px]">
+      <p className=" ">Title:</p>
+      <p>
             {" "}
             <b>{project.title}</b>
-          </p>{" "}
-         
-         
-        </div>
+          </p>
       </div>
-      
       <div className="flex gap-[21px] mt-[12px]">
       <p className=" ">Programme:</p>
       <p>

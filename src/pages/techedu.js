@@ -45,7 +45,7 @@ const techedu = () => {
       <section className="bg-gray-300">
         <div className="w-full h-[75vh] relative">
 
-        <Image src={"/techeddu.jpg"}  fill={true} alt="edutech" />
+        <Image src={"/edutech2.jpeg"}  fill={true} alt="edutech" />
         </div>
 
         <div className="flex justify-center mb-10 mt-20">

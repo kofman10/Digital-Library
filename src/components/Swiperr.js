@@ -13,7 +13,7 @@ import "swiper/css/autoplay";
 const Swiperr = () => {
 
   return (
-    <div className="mx-3">
+    <div className="">
       <Swiper
         // install Swiper modules
         modules={[EffectFade, Autoplay]}

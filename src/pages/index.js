@@ -23,9 +23,9 @@ export default function Home() {
         <section>
         <Link
               href="aboutus"
-              className="flex justify-center underline text-3xl uppercase mb-10 mt-10 font-semibold"
+              className="flex justify-center underline text-2xl uppercase mb-10 mt-10 font-semibold"
             >
-              -Who Are We
+              Who Are We?
             </Link>
           <div className="bg-black text-white py-10 mt-5 px-5">
             
@@ -51,7 +51,7 @@ export default function Home() {
               audience
             </p>
           </div>
-          <h2 className="text-3xl mt-5 font-semibold text-center">---LATEST PROJECTS---</h2>
+          <h2 className="text-2xl mt-5 font-semibold text-center">---LATEST PROJECTS---</h2>
           <div className="flex flex-col justify-center">
           <div className="mt-10  mx-auto">
             <Link href = '/compsciedu'>

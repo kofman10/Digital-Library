@@ -12,10 +12,10 @@ const Navbar = () => {
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 md:w-auto w-full h-full items-center flex justify-between">
           <Link href= '/'> 
-          <div className="w-28 h-[83px] relative">
+          <div className="w-[140px] h-[83px] relative">
           <Image
             className=""
-            src={"/logo.png"}
+            src={"/logo2.png"}
            fill = {true}
             alt="logo"
           />

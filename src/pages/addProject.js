@@ -83,7 +83,7 @@ const addProject = () => {
             </div>
           <div className="relative">
               <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="Year" id="year">
-                <option>Select Year</option>
+                <option disabled selected>Select Year</option>
                 <option value="2022/2023">2022/2023</option>
                 <option value="2021/2022">2021/2022</option>
                 <option value="2020/2021">2020/2021</option>
