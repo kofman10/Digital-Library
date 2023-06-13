@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { signIn, useSession } from 'next-auth/react';
 import { useForm } from 'react-hook-form';
 import { getError } from '../utils/error';
 import { ToastContainer,toast } from 'react-toastify';
+import { ColorRing } from "react-loader-spinner";
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/router';
 
@@ -10,6 +11,7 @@ const Login = () => {
   const { data: session } = useSession();
   const router = useRouter();
   const { redirect } = router.query;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (session?.user) {
@@ -24,6 +26,7 @@ const Login = () => {
   } = useForm();
   const submitHandler = async ({ username, password }) => {
     try {
+      setLoading(true);
       const result = await signIn('credentials', {
         redirect: false,
         username,
@@ -31,9 +34,12 @@ const Login = () => {
       });
       if (result.error) {
         toast.error(result.error);
+        setLoading(false)
       } 
+      setLoading(false)
     } catch (err) {
       toast.error(getError(err));
+      setLoading(false)
     }
   };
 
@@ -42,6 +48,7 @@ const Login = () => {
       <form onSubmit={handleSubmit(submitHandler)} className="flex flex-col justify-center items-center gap-5 mt-32">
         <div className="relative">
           <input
+          required
             type="text"
             {...register('username')}
             placeholder="Username"
@@ -56,6 +63,7 @@ const Login = () => {
         </div>
         <div className="relative">
           <input
+          required
             {...register('password')}
             type="password"
             placeholder="Password"
@@ -69,12 +77,33 @@ const Login = () => {
           )}
         </div>
         <div className="flex justify-center">
-              <button
-                className=" bg-black text-white rounded-md shadow-sm mt-5 w-72 py-2"
-                type="submit"
-              >
-                Login
-              </button>
+        <button
+              className=" bg-black text-white rounded-md shadow-sm mt-5 w-72 py-2"
+              type="submit"
+            >
+              {loading ? (
+                <div className="flex justify-center">
+                  {" "}
+                  <ColorRing
+                    visible={true}
+                    height="40"
+                    width="40"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                      "#b8c480",
+                      "#B2A3B5",
+                      "#F4442E",
+                      "#51E5FF",
+                      "#429EA6",
+                    ]}
+                  />{" "}
+                </div>
+              ) : (
+                "Login"
+              )}
+            </button>
             </div>
       </form>
       <ToastContainer />
