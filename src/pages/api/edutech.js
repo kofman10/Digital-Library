@@ -15,7 +15,6 @@ const handler = async (req, res) => {
 
     if (method === "GET") {
       try {
-      
         const projects = await Project.find({
           course: { $regex: /educational\s*technology/i } }
         );

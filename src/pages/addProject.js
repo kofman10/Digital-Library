@@ -51,7 +51,7 @@ const addProject = () => {
       toast.error(getError(err));
       setLoading(false);
     }
-    window.location.reload();
+   window.location.reload();
   };
   // useEffect(() => {
   //   window.location.reload();
@@ -82,7 +82,7 @@ const addProject = () => {
               </label>
             </div>
           <div className="relative">
-              <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="Year" id="year">
+              <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="year" id="year">
                 <option disabled selected>Select Year</option>
                 <option value="2022/2023">2022/2023</option>
                 <option value="2021/2022">2021/2022</option>
@@ -93,7 +93,7 @@ const addProject = () => {
             </div>
             <div className="relative">
             <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("course")} name="course" id="course">
-                <option >Select programme</option>
+                <option disabled selected >Select programme</option>
                 <option value="Computer Science Education">Computer Science Education</option>
                 <option value="Educational Technology">Educational Technology</option>
                 <option value="Technology Education">Technology Education</option>

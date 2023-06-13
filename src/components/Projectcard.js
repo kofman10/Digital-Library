@@ -7,38 +7,38 @@ const Projectcard = ({ project }) => {
     setShow(!show);
   };
   return (
-    <div className="bg-white p-2 border rounded-md flex flex-col gap-3">
+    <div className="bg-white w-full p-1 border flex flex-col gap-3">
       <div className="">
     
-      <div className="flex gap-[41px] mt-[12px]">
+      <div className="flex gap-[41px] mt-[5px]">
       <p className=" ">Author(s):</p>
       <p>
             {" "}
             <b>{project.author}</b>
           </p>
       </div>
-      <div className="flex gap-[53px] mt-[12px]">
+      <div className="flex gap-[53px] mt-[5px]">
       <p className=" ">Session:</p>
       <p>
             {" "}
             <b>{project.year}</b>
           </p>
       </div>
-      <div className="flex gap-[75px] mt-[12px]">
+      <div className="flex gap-[75px] mt-[5px]">
       <p className=" ">Title:</p>
       <p>
             {" "}
             <b>{project.title}</b>
           </p>
       </div>
-      <div className="flex gap-[21px] mt-[12px]">
+      <div className="flex gap-[21px] mt-[5px]">
       <p className=" ">Programme:</p>
       <p>
             {" "}
             <b>{project.course}</b>
           </p>
       </div>
-      <div className="flex gap-[29px] mt-[12px]">
+      <div className="flex gap-[29px] mt-[5px]">
       <p className=" ">Supervisor:</p>
       <p>
             {" "}
