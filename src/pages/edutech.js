@@ -40,7 +40,7 @@ const edutech = () => {
     setFilteredproject(searchList);
   };
   return (
-    <div>
+    <div className="">
       <Navbar />
       <section className="bg-gray-300">
         <div className="w-full z-0 h-[75vh] relative">
@@ -52,7 +52,7 @@ const edutech = () => {
           />
         </div>
 
-        <div className="flex justify-center mb-10 mt-20">
+        <div className="flex justify-center mb-10">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
             <input
               required

@@ -48,7 +48,7 @@ export default function Home() {
               accessible and available to anyone who needs them. We hope to
               contribute to this vision by providing a platform for
               undergraduate students to share their research with a wider
-              audience
+              audience.                  
             </p>
           </div>
           <h2 className="text-2xl mt-5 font-semibold text-center">---LATEST PROJECTS---</h2>
