@@ -50,7 +50,7 @@ const NavLinks = () => {
                   <div className="bg-white p-5 grid grid-cols-3 gap-10">
                     {link.sublinks.map((mysublinks) => (
                       <div>
-                        <h1 className="text-lg font-semibold">
+                        <h1 className="text-lg">
                           {mysublinks.Head}
                         </h1>
                         {mysublinks.sublink.map((slink) => (
@@ -82,9 +82,9 @@ const NavLinks = () => {
                 <div>
                   <Link href = {slinks.linka}
                     
-                    className="py-4 pl-7 font-semibold md:pr-0 pr-5 flex justify-between items-center"
+                    className="py-4 pl-7  md:pr-0 pr-5 flex justify-between items-center"
                   >
-                    {slinks.Head}
+                    <p className="hover:border p-2 hover:bg-gray-200 hover:text-black"> {slinks.Head}</p>
                   </Link>
                   <div
                     className={`${
@@ -104,11 +104,11 @@ const NavLinks = () => {
         </div>
       ))}
       <Link className="ml-3 mt-3 md:mt-0" href="/signIn">
-        Admin
+        Sign In
       </Link>
       <div className="ml-3 mt-3 md:mt-0">
         {" "}
-        {session?.user && <button onClick={() => signOut({callbackUrl: "/"})}>Sign out</button>}
+        {session?.user && <p onClick={() => signOut({callbackUrl: "/"})}>Sign Out</p>}
       </div>
       <div className="mt-3 md:mt-0">
         {session?.user && (

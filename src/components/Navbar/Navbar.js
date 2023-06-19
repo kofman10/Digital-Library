@@ -8,20 +8,13 @@ import Image from "next/image";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   return (
-    <nav className="bg-white border-b-2 border-b-sky-500">
+    <nav className="bg-white lg:p-0 p-4 border-b-2 z-40 fixed w-full font-fraunces border-b-sky-500">
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 md:w-auto w-full h-full items-center flex justify-between">
           <Link href= '/'> 
-          <div className="w-[140px] h-[83px] relative">
-          <Image
-            className=""
-            src={"/logo2.png"}
-           fill = {true}
-            alt="logo"
-          />
-        </div>
+          <p className="font-bold font-dancing text-lg">EDUTECH</p>
           </Link>
-          <div className="text-3xl md:hidden mr-6" onClick={() => setOpen(!open)}>
+          <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
       
             <Icon icon = {`${open ? "material-symbols:close" : "material-symbols:menu"}`} />
           </div>
@@ -37,7 +30,7 @@ const Navbar = () => {
         {/* Mobile nav */}
         <ul
           className={`
-        md:hidden bg-white z-40 fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4
+        md:hidden bg-black text-white z-40 fixed w-full top-16 overflow-y-auto bottom-0 py-24 pl-4
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
         >

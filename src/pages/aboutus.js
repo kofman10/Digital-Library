@@ -5,7 +5,7 @@ const aboutus = () => {
   return (
     <div>
       <Navbar />
-      <div className="bg-yellow-500 p-5 border-b-2 border-b-sky-500">
+      <div className="bg-yellow-500 p-5 font-barlow text-lg border-b-2 border-b-sky-500">
         <h1 className="text-center font-bold text-4xl text-white">About Us</h1>
         <p className="pt-4 text-center font-bold font-sans text-xl">PASSIONATE ABOUT EDUCATION DRIVEN BY TECHNOLOGY </p>
       </div>

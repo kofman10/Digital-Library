@@ -62,7 +62,7 @@ const addProject = () => {
   return (
     <div>
       <Navbar />
-      <section className="pt-10 pb-10 bg-gray-300">
+      <section className="pt-10 pb-10 font-fraunces bg-gray-300">
         <h1 className="text-center text-3xl font-mono font-semibold mb-5">
           Upload a Project
         </h1>

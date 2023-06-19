@@ -16,7 +16,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="h-full w-full bg-gray-300">
+      <main className="h-full w-full font-fraunces bg-gray-300">
         <Navbar />
 
         <Swiperr />
