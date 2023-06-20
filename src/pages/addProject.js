@@ -62,6 +62,10 @@ const addProject = () => {
   return (
     <div>
       <Navbar />
+      <div className="lg:hidden">
+        <br />
+        <br />
+      </div>
       <section className="pt-10 pb-10 font-fraunces bg-gray-300">
         <h1 className="text-center text-3xl font-mono font-semibold mb-5">
           Upload a Project
@@ -138,7 +142,7 @@ const addProject = () => {
             </div>
             <textarea {...register("abstract")} placeholder="Upload Abstract" className="border border-black focus:outline-none w-72" id="" cols="20" rows="10" />
             <div className="relative">
-              *
+              
               <input
                 required
                 {...register("filename")}

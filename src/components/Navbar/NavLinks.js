@@ -82,9 +82,9 @@ const NavLinks = () => {
                 <div>
                   <Link href = {slinks.linka}
                     
-                    className="py-4 pl-7  md:pr-0 pr-5 flex justify-between items-center"
+                    className="py-4 ml-7 lg:ml-0 pl-7  md:pr-0 pr-5 flex justify-between w-3/4 bg-blue-300 text-black items-center"
                   >
-                    <p className="hover:border p-2 hover:bg-gray-200 hover:text-black"> {slinks.Head}</p>
+                     {slinks.Head}
                   </Link>
                   <div
                     className={`${

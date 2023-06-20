@@ -60,19 +60,19 @@ const Projectcard = ({ project }) => {
       )}
       <div className="flex justify-center gap-2">
         <a
-          className="italic text-center  border bg-black text-white rounded-md p-2"
+          className="italic text-center  border bg-blue-300 text-black rounded-md p-2"
           href={project.filename}
         >
           View Pdf
         </a>
         <button
           onClick={showHandler}
-          className="p-2 border rounded-md text-white bg-black"
+          className="p-2 border rounded-md bg-blue-300 text-black"
         >
           {show ? <Icon icon="solar:minimize-bold" /> : <Icon icon="solar:maximize-bold" />}
         </button>
         <a
-          className="italic text-center  bg-black text-white border rounded-md p-2"
+          className="italic text-center  bg-blue-300 text-black border rounded-md p-2"
           href="/project"
         >
           link to project

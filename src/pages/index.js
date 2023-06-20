@@ -6,8 +6,6 @@ import Navbar from "../components/Navbar/Navbar";
 import Swiperr from "../components/Swiperr";
 
 export default function Home() {
-  
-
   return (
     <>
       <Head>
@@ -18,17 +16,19 @@ export default function Home() {
       </Head>
       <main className="h-full w-full font-fraunces bg-gray-300">
         <Navbar />
-
+        <div>
+          <br />
+          <br />
+        </div>
         <Swiperr />
         <section>
-        <Link
-              href="aboutus"
-              className="flex justify-center underline text-2xl uppercase mb-10 mt-10 font-semibold"
-            >
-              Who Are We?
-            </Link>
+          <Link
+            href="aboutus"
+            className="flex justify-center text-2xl text-red-500 uppercase mb-10 mt-10 font-semibold"
+          >
+            Who Are We?
+          </Link>
           <div className="bg-black text-white py-10 mt-5 px-5">
-            
             <h1 className="mb-3 text-center font-bold text-lg">Our Mission </h1>
 
             <p className="text-center">
@@ -48,74 +48,72 @@ export default function Home() {
               accessible and available to anyone who needs them. We hope to
               contribute to this vision by providing a platform for
               undergraduate students to share their research with a wider
-              audience.                  
+              audience.
             </p>
           </div>
-          <h2 className="text-2xl mt-5 font-semibold text-center">---LATEST PROJECTS---</h2>
+          <h2 className="text-2xl mt-5 font-semibold text-red-500 text-center">
+            ---LATEST PROJECTS---
+          </h2>
           <div className="flex flex-col justify-center">
-          <div className="mt-10  mx-auto">
-            <Link href = '/compsciedu'>
-
-            <div className="h-[40vh] w-[40vh] relative">
-              {" "}
-              <div className=" w-full bottom-16 absolute z-20">
-                {" "}
-                <h1 className="text-2xl font-semibold text-white text-center">
-                  Computer Science Education
-                </h1>
-              </div>{" "}
-              <Image
-                className="h-full w-full object-cover object-top"
-                src={"/compsciedu.jpeg"}
-                width={500}
-                height={500}
-                alt=""
-              />{" "}
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+            <div className="mt-10  mx-auto">
+              <Link href="/compsciedu">
+                <div className="h-[40vh] w-[40vh] relative">
+                  {" "}
+                  <div className=" w-full bottom-16 absolute z-20">
+                    {" "}
+                    <h1 className="text-2xl font-semibold text-white text-center">
+                      Computer Science Education
+                    </h1>
+                  </div>{" "}
+                  <Image
+                    className="h-full w-full object-cover object-top"
+                    src={"/compsciedu.jpeg"}
+                    width={500}
+                    height={500}
+                    alt=""
+                  />{" "}
+                  <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+                </div>
+              </Link>
+              <Link href="/edutech">
+                <div className="h-[40vh] w-[40vh] relative mt-5 mb-5">
+                  {" "}
+                  <div className=" w-full bottom-16 absolute z-20">
+                    {" "}
+                    <h1 className="text-2xl font-semibold text-white text-center">
+                      Educational Technology
+                    </h1>
+                  </div>{" "}
+                  <Image
+                    className="h-full w-full object-cover object-top"
+                    src={"/edutech.jpeg"}
+                    width={500}
+                    height={500}
+                    alt=""
+                  />{" "}
+                  <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+                </div>
+              </Link>
+              <Link href="/techedu">
+                <div className="h-[40vh] w-[40vh] relative">
+                  {" "}
+                  <div className=" w-full bottom-16 absolute z-20">
+                    {" "}
+                    <h1 className="text-2xl font-semibold text-white text-center">
+                      Technology Education
+                    </h1>
+                  </div>{" "}
+                  <Image
+                    className="h-full w-full   object-cover object-top"
+                    src={"/techedu.jpeg"}
+                    width={500}
+                    height={500}
+                    alt=""
+                  />{" "}
+                  <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
+                </div>
+              </Link>
             </div>
-            </Link>
-            <Link href = '/edutech'>
-            <div className="h-[40vh] w-[40vh] relative mt-5 mb-5">
-              {" "}
-              <div className=" w-full bottom-16 absolute z-20">
-                {" "}
-                <h1 className="text-2xl font-semibold text-white text-center">
-                  Educational Technology
-                </h1>
-              </div>{" "}
-              <Image
-                className="h-full w-full object-cover object-top"
-                src={"/edutech.jpeg"}
-                width={500}
-                height={500}
-                alt=""
-              />{" "}
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
-            </div>
-
-            </Link>
-            <Link href = '/techedu'>
-            <div className="h-[40vh] w-[40vh] relative">
-              {" "}
-              <div className=" w-full bottom-16 absolute z-20">
-                {" "}
-                <h1 className="text-2xl font-semibold text-white text-center">
-                  Technology Education
-                </h1>
-              </div>{" "}
-              <Image
-                className="h-full w-full   object-cover object-top"
-                src={"/techedu.jpeg"}
-                width={500}
-                height={500}
-                alt=""
-              />{" "}
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-10"></div>
-            </div>
-
-            </Link>
-          </div>
-
           </div>
         </section>
         {/**  <section className="bg-black text-white py-3">
@@ -162,7 +160,7 @@ export default function Home() {
           </div>
             </section> **/}
       </main>
-      <p className="text-center font-mono font-semibold">© 2022 COMSAVVY</p>
+      <p className="text-center font-mono font-semibold">EDUTECH © 2023 </p>
     </>
   );
 }
