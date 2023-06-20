@@ -25,6 +25,12 @@ const handler = async (req, res) => {
       }
     }
 
+    if (method === "DELETE") {
+      const project = await Project.create(req.body);
+      // console.log(project);
+      res.status(200).json(project);
+    }
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
