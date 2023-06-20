@@ -58,7 +58,7 @@ const Projectcard = ({ project }) => {
           </p>
         </div>
       )}
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-4 ml-[80px]">
         <a
           className="italic text-center  border bg-blue-300 text-black rounded-md p-2"
           href={project.filename}

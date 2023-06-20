@@ -42,11 +42,15 @@ const compsciedu = () => {
   return (
     <div>
       <Navbar />
+      <div>
+        <br />
+        <br />
+      </div>
       <section className="bg-gray-300">
       <div className="w-full h-[75vh] relative">
           <Image
             className=""
-            src={"/compsciedu2.jpg"}
+            src={"/compsciedu2.png"}
             fill={true}
             alt="computerscience"
           />

@@ -26,13 +26,13 @@ const Swiperr = () => {
             {" "}
             <div className="w-full h-72 lg:h-[75vh] relative ">
               {" "}
-              <div className=" w-full h-full mt-20 absolute text-center z-20">
+              <div className=" w-full h-full mt-20 absolute text-white text-center z-20">
                 {" "}
-                <h1 className="text-2xl font-bold font-mono text-indigo-900 text-center">
+                <h1 className="text-2xl font-bold font-mono text-white text-center">
                   {" "}
                   WELCOME TO THE DEPARTMENT LIBRARY{" "}
                 </h1>
-                <p className="font-semibold mt-3 text-indigo-900 ">
+                <p className="font-semibold mt-3">
                   Explore the World of Undergraduate Projects in Educational
                   Technology
                 </p>
@@ -52,7 +52,7 @@ const Swiperr = () => {
             {" "}
             <div className="w-full h-72 lg:h-[75vh] relative">
               {" "}
-              <div className=" w-full h-full mt-20  items absolute text-indigo-900  text-center z-20">
+              <div className=" w-full h-full mt-20  items absolute text-white text-center z-20">
                 {" "}
                 <h1 className="text-2xl font-bold font-mono">
                   {" "}
