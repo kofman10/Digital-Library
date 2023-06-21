@@ -1,5 +1,5 @@
-import dbConnect from "../../utils/db";
-import Project from "../../models/Project";
+import dbConnect from "../../../utils/db";
+import Project from "../../../models/Project";
 
 const handler = async (req, res) => {
   const { method } = req;

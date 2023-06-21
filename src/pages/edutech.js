@@ -15,7 +15,7 @@ const edutech = () => {
     const getProject = async () => {
       setLoading1(true);
       try {
-        const response = await axios.get("/api/edutech");
+        const response = await axios.get("/api/edutech/edutech");
         setProject(response.data);
         setFilteredproject(response.data);
         setLoading1(false);

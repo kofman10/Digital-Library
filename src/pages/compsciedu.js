@@ -11,11 +11,13 @@ const compsciedu = () => {
   const [filteredProject, setFilteredproject] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+      
+
   useEffect(() => {
     const getProject = async () => {
-      setLoading1(true);
+      setLoading1(true);    
       try {
-        const response = await axios.get("/api/compsciedu");
+        const response = await axios.get("/api/compsciedu/compsciedu");
         setProject(response.data);
         setFilteredproject(response.data);
         setLoading1(false);
@@ -39,6 +41,8 @@ const compsciedu = () => {
 
     setFilteredproject(searchList);
   };
+
+
   return (
     <div>
       <Navbar />

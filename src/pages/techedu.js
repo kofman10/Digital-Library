@@ -15,7 +15,7 @@ const techedu = () => {
     const getProject = async () => {
       setLoading1(true);
       try {
-        const response = await axios.get("/api/techedu");
+        const response = await axios.get("/api/techedu/techedu");
         setProject(response.data);
         setFilteredproject(response.data);
         setLoading1(false);
