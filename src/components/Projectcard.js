@@ -1,35 +1,41 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import axios from "axios";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 
 const Projectcard = ({ project }) => {
-
   const [show, setShow] = useState(false);
+  const { data: session } = useSession();
+
 
   const showHandler = () => {
     setShow(!show);
   };
-  const pathname = usePathname()
+
+  const pathname = usePathname();
+
   const handleDelete = async (id) => {
-    
     try {
       await axios.delete(`/api/${pathname}/${id}`);
     } catch (error) {
       console.error(error);
     }
   };
+
   return (
     <div className="bg-white w-full p-1 border flex flex-col gap-3">
       <div className="relative">
-        <div className="flex justify-end ">
-        <button
-          className="border bg-red-600 text-white mr-8 p-1 border-red-200"
-          onClick={() => handleDelete(project._id) &&  window.location.reload()}
-        >
-          Delete
-        </button>
-        </div>
+      { session?.user && <div className="flex justify-end ">
+          <button
+            className="border bg-red-600 text-white mr-8 p-1 border-red-200"
+            onClick={() =>
+              handleDelete(project._id) && window.location.reload()
+            }
+          >
+            Delete
+          </button>
+        </div> }
         <div className="flex gap-[40px] mt-[5px]">
           <p className="font-barlow">Author(s):</p>
           <p>
