@@ -88,11 +88,10 @@ const addProject = () => {
           <div className="relative">
               <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="year" id="year">
                 <option disabled selected>Select Year</option>
-                <option value="2022/2023">2022/2023</option>
-                <option value="2021/2022">2021/2022</option>
-                <option value="2020/2021">2020/2021</option>
-                <option value="2019/2020">2019/2020</option>
-                <option value="2018/2019">2018/2019</option>
+                <option value="2023 (2021/2022)">2023 (2021/2022)</option>
+                <option value="2022 (2020/2021)">2022 (2020/2021)</option>
+                <option value="2021 (2019/2020)">2021 (2019/2020)</option>
+                <option value="2019 (2018/2019)">2019 (2018/2019)</option>
               </select>
             </div>
             <div className="relative">

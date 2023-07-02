@@ -11,20 +11,19 @@ const aboutus = () => {
       </div>
       <div className="bg-yellow-500 p-5 font-barlow text-lg border-b-2 border-b-sky-500">
         <h1 className="text-center font-bold text-4xl p-2 text-white">About Us</h1>
-        <p className="pt-4 text-center font-bold font-sans text-xl">PASSIONATE ABOUT EDUCATION DRIVEN BY TECHNOLOGY </p>
+        <p className="pt-4 text-center font-bold font-sans text-xl">PASSIONATE ABOUT EDUCATION, DRIVEN BY TECHNOLOGY </p>
       </div>
       <section className="bg-gray-300 font-fraunces">
         <div className="mx-5">
           <div className="flex flex-col gap-3 text-justify pt-5 pb-7">
             <p>
-              Passionate About Education, Driven by Technology Meet Our Team: We
-              are a team of undergraduate students in the University Of Ilorin,
+              Meet Our Team: We are a team of undergraduate students in the University Of Ilorin,
               from Educational Technology Department with a passion for
               technology and education{" "}
             </p>
             <p>
-              OYEDUN ADEYINKA YUSUFF 18/25PJ039 COMPUTER SCIENCE AND EDUCATION
-              SHOAGA WURAOLA HASSANAT 18/25PC168 EDUCATIONAL TECHNOLOGY{" "}
+              OYEDUN ADEYINKA YUSUFF (18/25PJ039) COMPUTER SCIENCE AND EDUCATION</p>
+             <p> SHOAGA WURAOLA HASSANAT (18/25PC168) EDUCATIONAL TECHNOLOGY{" "}
             </p>
             <p>
               We are passionate about making research projects easily accessible
