@@ -26,7 +26,7 @@ export default function Home() {
             href="aboutus"
             className="flex justify-center text-2xl text-red-500 uppercase mb-10 mt-10 font-semibold"
           >
-            Who Are We?
+            Who We Are
           </Link>
           <div className="bg-black text-white py-10 mt-5 px-5">
             <h1 className="mb-3 text-center font-bold text-lg">Our Mission </h1>
