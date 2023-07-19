@@ -103,7 +103,7 @@ const Projectcard = ({ project }) => {
         </button>
         <a
           className="italic text-center  bg-blue-300 text-black border rounded-md p-2"
-          href="/project"
+          href="/Projectinfo"
         >
           link to project
         </a>
