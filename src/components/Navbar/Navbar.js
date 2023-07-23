@@ -12,8 +12,10 @@ const Navbar = () => {
       <div className="flex items-center font-medium justify-around">
         <div className="z-50 md:w-auto w-full h-full items-center flex justify-between">
           <Link href= '/'> 
+          <div className="md:mt-3">
           <p className="font-bold font-dancing text-indigo-900 text-2xl">EDUTECH</p>
-          <p className="top-9 font-semibold text-md text-indigo-900 left-4 tracking-widest absolute">cloud storage</p>
+          <p className="top-9 font-semibold text-md text-indigo-900 left-4  md:relative md:-top-3 md:-left-0 tracking-widest absolute">cloud storage</p>
+          </div>
           </Link>
           <div className="text-3xl md:hidden" onClick={() => setOpen(!open)}>
       

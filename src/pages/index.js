@@ -24,25 +24,25 @@ export default function Home() {
         <section>
           <Link
             href="aboutus"
-            className="flex justify-center text-2xl text-red-500 uppercase mb-10 mt-10 font-semibold"
+            className="flex justify-center text-2xl md:text-4xl text-red-500 uppercase mb-10 mt-10 font-semibold"
           >
             Who We Are
           </Link>
           <div className="bg-black text-white py-10 mt-5 px-5">
-            <h1 className="mb-3 text-center font-bold text-lg">Our Mission </h1>
+            <h1 className="mb-3 text-center font-bold text-lg md:text-3xl">Our Mission </h1>
 
-            <p className="text-center">
+            <p className="text-center md:text-xl">
               {" "}
               Our mission is to make educational research projects readily
               accessible to students, educators, and researchers in the
               Educational Technology field. We believe that sharing knowledge
               through research is essential for academic growth and development.
             </p>
-            <h1 className="mt-3 mb-3 text-center font-bold text-lg">
+            <h1 className="mt-3 mb-3 text-center font-bold md:text-3xl text-lg">
               Our Vision
             </h1>
 
-            <p className="text-center">
+            <p className="text-center md:text-xl">
               {" "}
               We envision a world where educational research projects are easily
               accessible and available to anyone who needs them. We hope to
@@ -51,11 +51,11 @@ export default function Home() {
               audience.
             </p>
           </div>
-          <h2 className="text-2xl mt-5 font-semibold text-red-500 text-center">
+          <h2 className="text-2xl mt-5 font-semibold text-red-500 md:text-3xl text-center">
             ---LATEST PROJECTS---
           </h2>
           <div className="flex flex-col justify-center">
-            <div className="mt-10  mx-auto">
+            <div className="mt-10 md:flex-row md:flex md:gap-7 mx-auto">
               <Link href="/compsciedu">
                 <div className="h-[40vh] w-[40vh] relative">
                   {" "}
@@ -76,7 +76,7 @@ export default function Home() {
                 </div>
               </Link>
               <Link href="/edutech">
-                <div className="h-[40vh] w-[40vh] relative mt-5 mb-5">
+                <div className="h-[40vh] w-[40vh] relative md:mt-0 mt-5 mb-5">
                   {" "}
                   <div className=" w-full bottom-16 absolute z-20">
                     {" "}
@@ -116,49 +116,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/**  <section className="bg-black text-white py-3">
-          <h2 className="text-center text-xl font-bold mt-5 mb-5">
-            Our Services
-          </h2>
-          <div className="flex flex-col text-justify gap-3 mx-3">
-            <p>Facilitating Access to High-Quality Undergraduate Projects</p>
-            <p>
-              <span className="font-semibold">Project Repository: </span> Our
-              digital library serves as a repository for Educational Technology
-              undergraduate projects. We make it easy for students to upload
-              their research projects and for others to browse the available
-              projects.
-            </p>
-            <p>
-              <span className="font-semibold">Search and Browse:</span> Our
-              platform offers a user-friendly interface that makes it easy to
-              search and browse through the repository of undergraduate
-              projects. Users can filter projects by topic or keyword, making it
-              easy to find the research they need.
-            </p>
-            <p>
-              <span className="font-semibold">Request Access:</span> While users
-              cannot download the projects directly, they can request access to
-              the full project by following necessary steps. We provide clear
-              instructions on how to request access to the project from the
-              department secretariat.
-            </p>
-            <p>
-              <span className="font-semibold">Feedback and Review:</span> Our
-              platform allows users to provide feedback and reviews on
-              undergraduate projects. This feature encourages constructive
-              criticism and improves the quality of research projects on our
-              platform.
-            </p>
-            <p>
-              <span className="font-semibold">Networking:</span> Our digital
-              library provides an opportunity for students, educators, and
-              researchers to network with each other. Users can connect with
-              others in their field, collaborate on research projects, and share
-              ideas and resources
-            </p>
-          </div>
-            </section> **/}
       </main>
       <p className="text-center font-mono font-semibold">EDUTECH © 2023 </p>
     </>

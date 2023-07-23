@@ -26,13 +26,13 @@ const Swiperr = () => {
             {" "}
             <div className="w-full h-72 lg:h-[75vh] relative ">
               {" "}
-              <div className=" w-full h-full mt-20 absolute text-white text-center z-20">
+              <div className=" w-full h-full mt-20 md:mt-60 absolute text-white text-center z-20">
                 {" "}
-                <h1 className="text-2xl font-bold font-mono text-white text-center">
+                <h1 className="text-2xl md:text-5xl font-bold font-mono text-white text-center">
                   {" "}
                   WELCOME TO THE DEPARTMENT LIBRARY{" "}
                 </h1>
-                <p className="font-semibold mt-3">
+                <p className="font-semibold md:text-2xl mt-3">
                   Explore the World of Undergraduate Projects in Educational
                   Technology
                 </p>
@@ -52,13 +52,13 @@ const Swiperr = () => {
             {" "}
             <div className="w-full h-72 lg:h-[75vh] relative">
               {" "}
-              <div className=" w-full h-full mt-20  items absolute text-white text-center z-20">
+              <div className=" w-full h-full mt-20 md:mt-60 items absolute text-white text-center z-20">
                 {" "}
-                <h1 className="text-2xl font-bold font-mono">
+                <h1 className="text-2xl md:text-5xl font-bold font-mono">
                   {" "}
                   EDUCATIONAL TECHNOLOGY PROJECT LIBRARY {" "}
                 </h1>
-                <p className="font-semibold mt-3">Discover the Cutting-Edge Projects of Our Educational Technology Scholars </p>
+                <p className="font-semibold md:text-2xl mt-3">Discover the Cutting-Edge Projects of Our Educational Technology Scholars </p>
               </div>{" "}
               <Image
                

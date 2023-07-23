@@ -40,7 +40,7 @@ const NavLinks = () => {
             </Link>
             {link.submenu === true && (
               <div>
-                <div className="absolute hidden z-0 top-20 group-hover:md:block hover:md:block">
+                <div className="absolute hidden z-0 top-10 group-hover:md:block hover:md:block">
                   <div className="py-3">
                     <div
                       className="w-4 h-4 left-3 z-10 
@@ -50,9 +50,9 @@ const NavLinks = () => {
                   <div className="bg-white p-5 grid grid-cols-3 gap-10">
                     {link.sublinks.map((mysublinks) => (
                       <div>
-                        <h1 className="text-lg">
+                        <Link href= {mysublinks.linka} className="text-lg">
                           {mysublinks.Head}
-                        </h1>
+                        </Link>
                         {mysublinks.sublink.map((slink) => (
                           <li className="text-sm text-gray-600 my-2.5">
                             <Link
