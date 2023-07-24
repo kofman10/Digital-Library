@@ -79,14 +79,14 @@ const addProject = () => {
                 {...register("author")}
                 type="text"
                 placeholder="Author"
-                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
+                className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
               />
               <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
                 Author
               </label>
             </div>
           <div className="relative">
-              <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="year" id="year">
+              <select className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("year")} name="year" id="year">
                 <option disabled selected>Select Year</option>
                 <option value="2023 (2021/2022)">2023 (2021/2022)</option>
                 <option value="2022 (2020/2021)">2022 (2020/2021)</option>
@@ -95,7 +95,7 @@ const addProject = () => {
               </select>
             </div>
             <div className="relative">
-            <select className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("course")} name="course" id="course">
+            <select className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer" {...register("course")} name="course" id="course">
                 <option disabled selected >Select programme</option>
                 <option value="Computer Science Education">Computer Science Education</option>
                 <option value="Educational Technology">Educational Technology</option>
@@ -108,7 +108,7 @@ const addProject = () => {
                 {...register("title")}
                 type="text"
                 placeholder="Title of Project"
-                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
+                className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
               />
               <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
                 Title of project
@@ -121,7 +121,7 @@ const addProject = () => {
                 {...register("supervisor")}
                 type="text"
                 placeholder="Supervisor"
-                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
+                className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
               />
               <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
                 Supervisor
@@ -133,13 +133,13 @@ const addProject = () => {
                 {...register("keywords")}
                 type="text"
                 placeholder="Keywords"
-                className="border border-black rounded-md focus:outline-none w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
+                className="border border-black rounded-md focus:outline-none md:w-[500px] w-72 h-10 px-2 focus:border-black focus:border-b-4 transition-colors peer"
               />
               <label className="absolute left-2 top-2 text-black cursor-text hidden peer-focus:block peer-focus:text-xs peer-focus:-top-4 peer-focus:text-black transition-all">
                 Keywords
               </label>
             </div>
-            <textarea {...register("abstract")} placeholder="Upload Abstract" className="border border-black focus:outline-none w-72" id="" cols="20" rows="10" />
+            <textarea {...register("abstract")} placeholder="Upload Abstract" className="border border-black focus:outline-none md:w-[500px] w-72" id="" cols="20" rows="10" />
             <div className="relative">
               
               <input

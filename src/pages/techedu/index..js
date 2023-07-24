@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { ColorRing } from "react-loader-spinner";
-import Projectcard from "../components/Projectcard";
+import Projectcard from "../../components/Projectcard";
 import Navbar from "@/components/Navbar/Navbar";
 
-const edutech = () => {
+const techedu = () => {
   const [loading1, setLoading1] = useState(false);
   const [project, setProject] = useState([]);
   const [filteredProject, setFilteredproject] = useState([]);
@@ -15,7 +15,7 @@ const edutech = () => {
     const getProject = async () => {
       setLoading1(true);
       try {
-        const response = await axios.get("/api/edutech/edutech");
+        const response = await axios.get("/api/techedu/techedu");
         setProject(response.data);
         setFilteredproject(response.data);
         setLoading1(false);
@@ -40,25 +40,15 @@ const edutech = () => {
     setFilteredproject(searchList);
   };
   return (
-    <div className="">
+    <div>
       <Navbar />
-      <div className="lg:hidden">
-      <br />
-      <br />
-      <br />
-      </div>
       <section className="bg-gray-300">
-        <div className="w-full z-0 h-[75vh] relative mb-10 lg:mb-0">
-         
-          <Image
-            className="z-0 relative"
-            src={"/techeddu.jpg"}
-            fill={true}
-            alt="edutech"
-          />
+        <div className="w-full h-[75vh] relative">
+
+        <Image src={"/edutech2.jpeg"}  fill={true} alt="edutech" />
         </div>
 
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-10 mt-20">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
             <input
               required
@@ -77,7 +67,7 @@ const edutech = () => {
               visible={true}
               height="40"
               width="40"
-              ariaLabel="blocks-loading"         
+              ariaLabel="blocks-loading"
               wrapperStyle={{}}
               wrapperClass="blocks-wrapper"
               colors={["#b8c480", "#B2A3B5", "#F4442E", "#51E5FF", "#429EA6"]}
@@ -97,4 +87,4 @@ const edutech = () => {
   );
 };
 
-export default edutech;
+export default techedu;

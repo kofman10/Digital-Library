@@ -2,20 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { ColorRing } from "react-loader-spinner";
-import Projectcard from "../components/Projectcard";
+import Projectcard from "../../components/Projectcard";
 import Navbar from "@/components/Navbar/Navbar";
 
-const techedu = () => {
+const compsciedu = () => {
   const [loading1, setLoading1] = useState(false);
   const [project, setProject] = useState([]);
   const [filteredProject, setFilteredproject] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 
+      
+
   useEffect(() => {
     const getProject = async () => {
-      setLoading1(true);
+      setLoading1(true);    
       try {
-        const response = await axios.get("/api/techedu/techedu");
+        const response = await axios.get("/api/compsciedu/compsciedu");
         setProject(response.data);
         setFilteredproject(response.data);
         setLoading1(false);
@@ -39,15 +41,25 @@ const techedu = () => {
 
     setFilteredproject(searchList);
   };
+
+
   return (
     <div>
       <Navbar />
+      <div>
+        <br />
+        <br />
+      </div>
       <section className="bg-gray-300">
-        <div className="w-full h-[75vh] relative">
-
-        <Image src={"/edutech2.jpeg"}  fill={true} alt="edutech" />
+      <div className="w-full h-[75vh] relative">
+          <Image
+            className=""
+            src={"/compsciedu2.png"}
+            fill={true}
+            alt="computerscience"
+          />
         </div>
-
+       
         <div className="flex justify-center mb-10 mt-20">
           <div className="flex justify-between w-1/3 items-center border border-black rounded-full px-4 py-1 mb-10">
             <input
@@ -87,4 +99,4 @@ const techedu = () => {
   );
 };
 
-export default techedu;
+export default compsciedu;

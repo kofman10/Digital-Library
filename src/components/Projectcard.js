@@ -84,7 +84,7 @@ const Projectcard = ({ project }) => {
           </p>
         </div>
       )}
-      <div className="flex gap-3 justify-center ml-[80px]">
+      <div className="flex gap-3 md:gap-10 justify-center ml-[80px]">
         <a
           className="italic text-center  border bg-blue-300 text-black rounded-md p-2"
           href={project.filename}
@@ -103,7 +103,7 @@ const Projectcard = ({ project }) => {
         </button>
         <a
           className="italic text-center  bg-blue-300 text-black border rounded-md p-2"
-          href="/Projectinfo"
+          href={ `/compsciedu/${project._id}`}
         >
           link to project
         </a>
@@ -111,5 +111,4 @@ const Projectcard = ({ project }) => {
     </div>
   );
 };
-
 export default Projectcard;

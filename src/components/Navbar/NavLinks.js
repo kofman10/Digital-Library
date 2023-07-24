@@ -106,7 +106,7 @@ const NavLinks = () => {
       <Link className="ml-3 mt-3 md:mt-0" href="/signIn">
         Sign In
       </Link>
-      <div className="ml-3 mt-3 md:mt-0">
+      <div className="ml-3 mt-3 cursor-pointer md:mt-0">
         {" "}
         {session?.user && <p onClick={() => signOut({callbackUrl: "/"})}>Sign Out</p>}
       </div>

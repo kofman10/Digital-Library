@@ -9,11 +9,11 @@ const aboutus = () => {
         <br />
         <br />
       </div>
-      <div className="bg-yellow-500 p-5 font-barlow text-lg border-b-2 border-b-sky-500">
+      <div className="bg-yellow-500 p-5 md:p-10 font-barlow text-lg border-b-2 border-b-sky-500">
         <h1 className="text-center font-bold text-4xl p-2 text-white">About Us</h1>
         <p className="pt-4 text-center font-bold font-sans text-xl">PASSIONATE ABOUT EDUCATION, DRIVEN BY TECHNOLOGY </p>
       </div>
-      <section className="bg-gray-300 font-fraunces">
+      <section className="bg-gray-300 md:h-screen font-fraunces">
         <div className="mx-5">
           <div className="flex flex-col gap-3 text-justify pt-5 pb-7">
             <p>
