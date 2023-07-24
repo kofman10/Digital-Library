@@ -55,7 +55,7 @@ const Projectinfo = () => {
         getProject();
   }, [id]);
   return (
-    <div>
+    <div className="bg-gray-300 h-screen md:h-full">
       <Navbar />
       {session?.user && <form
         onSubmit= {handleSubmit(onSubmit)}
@@ -117,7 +117,7 @@ const Projectinfo = () => {
           </button>
         </div>
       </form>}
-      <div className="pt-20 md:p-40 font-barlow text-xl">
+      <div className="pt-20 md:p-40 ml-3 font-barlow text-xl">
         <p>To Access this project resources, Kindly contact the Project Supervisor </p>
         <p className="pt-10">Supervisor: {field && field.supervisor}</p>
         <p>email: {field && field.emailOfSupervisor}</p>
