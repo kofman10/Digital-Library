@@ -7,13 +7,16 @@ const File = () => {
   const { query } = useRouter();
   let id = query.id;
   const [file, setFile] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     const getProject = async () => {
       if (id) {
         try {
           const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
           setFile(response.data[0].filename);
-          console.log(file)
+          setIsLoading(false);
+          console.log(file);
         } catch (error) {
           console.log(error);
         }
@@ -26,7 +29,20 @@ const File = () => {
     <div>
       <Navbar />
       <div className="pt-20 w-full h-screen">
-       {file && <embed className="w-full h-full" src={file} type= 'application/pdf' width='500' height = '500'/> }
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : (
+          file && (
+            <embed
+              className="w-full h-full"
+              src={file}
+              type="application/pdf"
+              width="100%"
+              height="100%"
+              onLoad={() => console.log("PDF Loaded")}
+            />
+          )
+        )}{" "}
       </div>
     </div>
   );
