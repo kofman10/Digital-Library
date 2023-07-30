@@ -3,7 +3,6 @@ import { Icon } from "@iconify/react";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
-import Projectfile from "@/pages/projectfile";
 
 const Projectcard = ({ project }) => {
   const [show, setShow] = useState(false);
