@@ -12,7 +12,8 @@ const File = () => {
       if (id) {
         try {
           const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
-          setFile(response.data[0]);
+          setFile(response.data[0].filename);
+          console.log(file)
         } catch (error) {
           console.log(error);
         }
@@ -25,7 +26,7 @@ const File = () => {
     <div>
       <Navbar />
       <div className="pt-20 w-full h-screen">
-        <iframe className="w-full h-full" src={file?.filename} width="500" height="500"></iframe>
+       {file && <embed className="w-full h-full" src={file} type= 'application/pdf' width='500' height = '500'/> }
       </div>
     </div>
   );

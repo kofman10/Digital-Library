@@ -26,7 +26,7 @@ const File = () => {
     <div>
       <Navbar />
       <div className="pt-20 w-full h-screen">
-       {file && <iframe className="w-full h-full" src={file} width="500" height="500"></iframe> }
+       {file && <embed className="w-full h-full" src={file} type= 'application/pdf' width='500' height = '500'/> }
       </div>
     </div>
   );
