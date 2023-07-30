@@ -35,7 +35,7 @@ const File = () => {
           file && (
             <embed
               className="w-full h-full"
-              src={file}
+              src='https://res.cloudinary.com/dtfxgvzze/image/upload/v1690740740/files/qieved9tlxshmt4ykhmv.pdf'
               type="application/pdf"
               width="100%"
               height="100%"
