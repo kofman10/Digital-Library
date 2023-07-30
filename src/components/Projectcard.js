@@ -3,6 +3,7 @@ import { Icon } from "@iconify/react";
 import axios from "axios";
 import { usePathname } from "next/navigation";
 import { signOut, useSession } from "next-auth/react";
+import Projectfile from "@/pages/projectfile";
 
 const Projectcard = ({ project }) => {
   const [show, setShow] = useState(false);
@@ -86,7 +87,7 @@ const Projectcard = ({ project }) => {
       <div className="flex gap-3 md:gap-10 justify-center ml-[80px]">
         <a
           className="italic text-center  border bg-blue-300 text-black rounded-md p-2"
-          href={project.filename}
+          href= {`${pathname}/pdfview/${project._id}`}
         >
           View Pdf
         </a>
@@ -107,6 +108,7 @@ const Projectcard = ({ project }) => {
           link to project
         </a>
       </div>
+             
     </div>
   );
 };
