@@ -13,6 +13,7 @@ const File = () => {
         try {
           const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
           setFile(response.data[0].filename);
+          console.log(file)
         } catch (error) {
           console.log(error);
         }
