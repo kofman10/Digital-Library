@@ -7,17 +7,16 @@ const File = () => {
     const {query} = useRouter()
     let id = query.id 
     const [file, setFile] = useState()
-
     useEffect(() => {
    
       const getProject = async () => {
-        if(id) {
+        if(id) { 
           try {
             const response =  await axios.get(`/api/compsciedu/projectinfo/${id}`);
             setFile(response.data[0])
           } catch (error) {
-            console.log(error)
-          }     
+            console.log(error)     
+        }
         }
         }
         getProject();
@@ -27,7 +26,10 @@ const File = () => {
 
     <div>
         <Navbar />
-        <object data={file.filename} type="application/pdf"></object>
+        <div className='pt-20 w-full h-screen'>
+
+        <object className='w-full h-full' data={file?.filename} type="application/pdf" width='500' height='500'></object>
+        </div>
     </div>
   )
 }
