@@ -12,7 +12,6 @@ const Projectcard = ({ project }) => {
   const showHandler = () => {
     setShow(!show);
   };
-
   const pathname = usePathname();
 
   const handleDelete = async (id) => {
@@ -103,7 +102,7 @@ const Projectcard = ({ project }) => {
         </button>
         <a
           className="italic text-center  bg-blue-300 text-black border rounded-md p-2"
-          href={ `/compsciedu/${project._id}`}
+          href={ `${pathname}/${project._id}`}
         >
           link to project
         </a>

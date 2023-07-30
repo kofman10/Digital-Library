@@ -42,13 +42,13 @@ const edutech = () => {
   return (
     <div className="">
       <Navbar />
-      <div className="lg:hidden">
+      <div className="">
       <br />
       <br />
       <br />
       </div>
       <section className="bg-gray-300">
-        <div className="w-full z-0 h-[75vh] relative mb-10 lg:mb-0">
+        <div className="w-full z-0 h-[75vh] md:h-[85vh]  relative mb-10 ">
          
           <Image
             className="z-0 relative"

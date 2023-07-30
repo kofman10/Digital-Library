@@ -51,7 +51,7 @@ const compsciedu = () => {
         <br />
       </div>
       <section className="bg-gray-300">
-      <div className="w-full h-[75vh] relative">
+      <div className="w-full h-[75vh] md:h-[95vh] md:mt-7 relative">
           <Image
             className=""
             src={"/compsciedu2.png"}

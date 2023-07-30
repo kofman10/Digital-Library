@@ -24,7 +24,7 @@ const addProject = () => {
 
     formData.append("file", filename[0]);
     formData.append("upload_preset", "file_upload");
-  console.log(data)
+    console.log(data)
     try {
       setLoading(true);
       const response = await axios.post(

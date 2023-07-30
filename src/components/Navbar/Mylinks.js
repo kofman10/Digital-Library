@@ -14,7 +14,7 @@ export const links = [
     sublinks: [
       {
         Head: "Computer Science Education",
-        linka: 'compsciedu',
+        linka: '/compsciedu',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },
@@ -25,7 +25,7 @@ export const links = [
       },
       {
         Head: "Educational Technology",
-        linka: 'edutech',
+        linka: '/edutech',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },
@@ -36,7 +36,7 @@ export const links = [
       },
       {
         Head: "Technology Education",
-        linka: 'techedu',
+        linka: '/techedu',
         sublink: [
           // { name: "T-shirt", link: "/" },
           // { name: "Casual shirts", link: "/" },

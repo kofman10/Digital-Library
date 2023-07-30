@@ -23,13 +23,25 @@ const Projectinfo = () => {
   let id = query.id 
 
   const onSubmit = async (data) => {
-    const { emailOfSupervisor, phoneNumberOfSupervisor } = data;
+    const { emailOfSupervisor, phoneNumberOfSupervisor, filename } = data;
     console.log(data)
+    const formData = new FormData();
+
+    formData.append("file", filename[0]);
+    formData.append("upload_preset", "file_upload");
+    
     try {
       setLoading(true)
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dtfxgvzze/upload",
+        formData
+      );
+
+      const filename = response.data.url;
       const updateProject = {
         emailOfSupervisor,
         phoneNumberOfSupervisor,
+        filename
       };
       await axios.post(`/api/compsciedu/projectinfo/${id}`,updateProject);
       setLoading(false)
@@ -54,8 +66,9 @@ const Projectinfo = () => {
         }
         getProject();
   }, [id]);
+
   return (
-    <div className="bg-gray-300 h-screen md:h-full">
+    <div className="bg-gray-300 h-screen md:h-full md:pb-32">
       <Navbar />
       {session?.user && <form
         onSubmit= {handleSubmit(onSubmit)}
@@ -86,6 +99,16 @@ const Projectinfo = () => {
             PhoneNumberOfSupervisor
           </label>
         </div>
+
+        <div className="relative">
+              
+              <input
+                required
+                {...register("filename")}
+                type="file"
+                className=""
+              />
+            </div>
         </div>
         <div className="flex justify-center">
           <button
@@ -117,11 +140,13 @@ const Projectinfo = () => {
           </button>
         </div>
       </form>}
-      <div className="pt-20 md:p-40 ml-3 font-barlow text-xl">
-        <p>To Access this project resources, Kindly contact the Project Supervisor </p>
-        <p className="pt-10">Supervisor: {field && field.supervisor}</p>
-        <p>email: {field && field.emailOfSupervisor}</p>
-        <p>number: {field && field.phoneNumberOfSupervisor}</p>
+      <div className="pt-20 md:p-40 mx-3 font-barlow">
+        <h1 className="text-2xl md:text-3xl font-bold text-center">To access this project resources, kindly contact the Project Supervisor </h1>
+        <div className="bg-white shadow-lg shadow-black mt-10 flex flex-col gap-8 p-4  md:w-3/4 md:ml-24">
+        <div className="flex gap-3"> <p className="font-bold">Supervisor:</p> <p>{field && field.supervisor}</p></div>
+        <div className="flex gap-12"><p className="font-bold">Email:</p> <p className="text-red-500">{field && field.emailOfSupervisor}</p></div>
+        <div className="flex gap-7"><p className="font-bold">Number:</p> <p>{field && field.phoneNumberOfSupervisor}</p> </div>
+        </div>
       </div>
       <ToastContainer />
     </div>
