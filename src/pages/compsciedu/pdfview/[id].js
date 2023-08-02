@@ -3,6 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Navbar from "@/components/Navbar/Navbar";
 
+
 const File = () => {
   const { query } = useRouter();
   let id = query.id;
@@ -35,7 +36,7 @@ const File = () => {
           file && (
             <embed
               className="w-full h-full"
-              src='https://res.cloudinary.com/dtfxgvzze/image/upload/v1690740740/files/qieved9tlxshmt4ykhmv.pdf'
+              src={file}
               type="application/pdf"
               width="100%"
               height="100%"
