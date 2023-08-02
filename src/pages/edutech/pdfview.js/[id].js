@@ -14,7 +14,7 @@ const File = () => {
       if (id) {
         try {
           const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
-          setFile(response.data[0].filename);
+          setFile(response.data[0]);
           setIsLoading(false);
           console.log(file);
         } catch (error) {
@@ -35,7 +35,7 @@ const File = () => {
           file && (
             <embed
               className="w-full h-full"
-              src={file}
+              src={file?.filename}
               type="application/pdf"
               width="100%"
               height="100%"
