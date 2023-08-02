@@ -86,7 +86,7 @@ const Projectcard = ({ project }) => {
       <div className="flex gap-3 md:gap-10 justify-center ml-[80px]">
         <a
           className="italic text-center  border bg-blue-300 text-black rounded-md p-2"
-          href= {project.filename}
+          href= {`${pathname}/pdfview/${project._id}`}
         >
           View Pdf
         </a>
