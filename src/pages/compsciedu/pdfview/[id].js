@@ -22,9 +22,6 @@ const File = () => {
     if (id) {
       const projectId = id;
       getProject(projectId);  
-      console.log(file)
-      console.log(id)
-      console.log('got here!')
     }
   }, [id, file]);
 

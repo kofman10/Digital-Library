@@ -10,20 +10,20 @@ const File = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getProject = async () => {
-      if (id) {
+    const getProject = async (projectId) => {
         try {
-          const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
+          const response = await axios.get(`/api/compsciedu/projectinfo/${projectId}`);
           setFile(response.data[0].filename);
           setIsLoading(false);
-          console.log(file);
         } catch (error) {
           console.log(error);
-        }
-      }
+        }   
     };
-    getProject();
-  }, [id]);
+    if (id) {
+      const projectId = id;
+      getProject(projectId);  
+    }
+  }, [id, file]);
 
   return (
     <div>
@@ -39,7 +39,7 @@ const File = () => {
               type="application/pdf"
               width="100%"
               height="100%"
-              onLoad={() => console.log("PDF Loaded")}
+             
             />
           )
         )}{" "}
