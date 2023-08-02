@@ -16,13 +16,13 @@ const File = () => {
           const response = await axios.get(`/api/compsciedu/projectinfo/${id}`);
           setFile(response.data[0]);
           setIsLoading(false);
-          console.log(file);
         } catch (error) {
           console.log(error);
         }
       }
     };
     getProject();
+    console.log(file?.filename)
   }, [id]);
 
   return (
