@@ -17,22 +17,21 @@ const addProject = () => {
 
   // const filename = watch('filename')[0].name
   const [loading, setLoading] = useState(false);
-
   const onSubmit = async (data) => {
     const { title, author, course, supervisor, abstract, filename, year, keywords } = data;
     const formData = new FormData();
-
+    
     formData.append("file", filename[0]);
     formData.append("upload_preset", "file_upload");
-    console.log(data)
     try {
       setLoading(true);
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dtfxgvzze/upload",
-        formData
+        formData 
       );
 
-      const filename = response.data.url;
+      const filename = response.data.secure_url;
+
       const newProject = {
         year,
         title,
@@ -52,6 +51,7 @@ const addProject = () => {
       setLoading(false);
     }
    window.location.reload();
+
   };
   // useEffect(() => {
   // 

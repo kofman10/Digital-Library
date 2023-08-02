@@ -37,7 +37,7 @@ const Projectinfo = () => {
         formData
       );
 
-      const filename = response.data.url;
+      const filename = response.data.secure_url;
       const updateProject = {
         emailOfSupervisor,
         phoneNumberOfSupervisor,
