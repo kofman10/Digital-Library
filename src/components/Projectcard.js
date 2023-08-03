@@ -13,7 +13,7 @@ const Projectcard = ({ project }) => {
     setShow(!show);
   };
   const pathname = usePathname();
-
+  
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/api/${pathname}/${id}`);

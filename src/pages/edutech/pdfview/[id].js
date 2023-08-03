@@ -12,7 +12,7 @@ const File = () => {
   useEffect(() => {
     const getProject = async (projectId) => {
         try {
-          const response = await axios.get(`/api/compsciedu/projectinfo/${projectId}`);
+          const response = await axios.get(`/api/edutech/projectinfo/${projectId}`);
           setFile(response.data[0].filename);
           setIsLoading(false);
         } catch (error) {
