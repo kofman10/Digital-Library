@@ -23,26 +23,17 @@ const Projectinfo = () => {
   let id = query.id 
 
   const onSubmit = async (data) => {
-    const { emailOfSupervisor, phoneNumberOfSupervisor, filename } = data;
-    console.log(data)
-    const formData = new FormData();
-
-    formData.append("file", filename[0]);
-    formData.append("upload_preset", "file_upload");
-    
+    const { emailOfSupervisor, phoneNumberOfSupervisor} = data;
+   
     try {
       setLoading(true)
-      const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/dtfxgvzze/upload",
-        formData
-      );
+   
 
-      const filename = response.data.secure_url;
       const updateProject = {
         emailOfSupervisor,
         phoneNumberOfSupervisor,
-        filename
       };
+
       await axios.post(`/api/edutech/projectinfo/${id}`,updateProject);
       setLoading(false)
       window.location.reload()
@@ -99,16 +90,6 @@ const Projectinfo = () => {
             PhoneNumberOfSupervisor
           </label>
         </div>
-
-        <div className="relative">
-              
-              <input
-                required
-                {...register("filename")}
-                type="file"
-                className=""
-              />
-            </div>
         </div>
         <div className="flex justify-center">
           <button

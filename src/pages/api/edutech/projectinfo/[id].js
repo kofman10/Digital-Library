@@ -12,8 +12,8 @@ const handler = async (req, res) => {
       res.status(200).json(project);
     }
     if (method === "POST") {
-      const { emailOfSupervisor, phoneNumberOfSupervisor, filename} = req.body;
-      const updatedFields = { emailOfSupervisor, phoneNumberOfSupervisor, filename };
+      const { emailOfSupervisor, phoneNumberOfSupervisor} = req.body;
+      const updatedFields = { emailOfSupervisor, phoneNumberOfSupervisor};
       const updatedUser = await Project.findByIdAndUpdate(
         req.query.id,
         { $set: updatedFields }, 
