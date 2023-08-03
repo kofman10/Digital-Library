@@ -13,7 +13,7 @@ const Projectcard = ({ project }) => {
     setShow(!show);
   };
   const pathname = usePathname();
-  
+
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/api/${pathname}/${id}`);
@@ -57,8 +57,8 @@ const Projectcard = ({ project }) => {
           </p>
         </div>
         <div className="flex gap-[21px] mt-[5px]">
-          <p className="font-barlow ">Programme:</p>
-          <p>
+          <p className="font-barlow text-sky-600">Programme:</p>
+          <p className="text-sky-600">
             {" "}
             <b>{project.course}</b>
           </p>
